@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="Brandshine Tent Makers – Premium quality tents for weddings, corporate events, parties & more. Affordable prices, fast delivery across Kenya."/>
 <title>Brandshine Tent Makers | Premium Event Tents Kenya</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-/* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;overflow-x:hidden}
@@ -16,1270 +15,1133 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-/* ===== VARIABLES ===== */
 :root{
-  --gold:#D4A017;
-  --gold-light:#F0C040;
-  --dark:#0d0d1a;
-  --dark2:#1a1a2e;
-  --green:#1a7a3c;
-  --green-light:#22a050;
-  --white:#fff;
-  --gray:#f5f5f7;
-  --text:#3a3a4a;
-  --radius:12px;
-  --shadow:0 8px 32px rgba(0,0,0,0.12);
-  --transition:all 0.3s cubic-bezier(.4,0,.2,1);
+  --gold:#D4A017;--gold-light:#F0C040;--gold-dark:#9a7000;
+  --dark:#080812;--dark2:#1a1a2e;
+  --green:#1a7a3c;--green-light:#22a050;
+  --white:#fff;--gray:#f5f5f7;--text:#4a4a5a;
+  --radius:14px;--shadow:0 8px 32px rgba(0,0,0,0.12);
+  --trans:all 0.3s cubic-bezier(.4,0,.2,1);
 }
 
-/* ===== NAVBAR ===== */
+/* ========== INTRO SCREEN ========== */
+#intro-screen{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--dark);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0;
+  animation:introFade 0.6s ease 3.2s forwards;
+}
+@keyframes introFade{to{opacity:0;pointer-events:none;visibility:hidden}}
+
+.intro-logo{
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  animation:introUp 0.8s cubic-bezier(.16,1,.3,1) 0.3s both;
+}
+@keyframes introUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+.intro-svg{
+  width:90px;height:90px;
+  filter:drop-shadow(0 0 24px rgba(212,160,23,0.5));
+  animation:introGlow 1.5s ease 1s infinite alternate;
+}
+@keyframes introGlow{
+  from{filter:drop-shadow(0 0 16px rgba(212,160,23,0.4))}
+  to{filter:drop-shadow(0 0 36px rgba(212,160,23,0.8))}
+}
+
+.intro-brand{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,5vw,52px);font-weight:900;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:1px;text-align:center;
+  line-height:1.1;
+}
+.intro-sub{
+  font-size:12px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);font-weight:600;
+  animation:introUp 0.8s cubic-bezier(.16,1,.3,1) 0.7s both;
+}
+.intro-line{
+  width:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:introLine 1s ease 1s forwards;
+  margin:6px 0;
+}
+@keyframes introLine{to{width:260px}}
+.intro-loader{
+  margin-top:40px;width:200px;height:2px;
+  background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;
+  animation:introUp 0.5s ease 0.5s both;
+}
+.intro-loader-bar{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  border-radius:2px;
+  animation:loaderFill 2.4s cubic-bezier(.4,0,.2,1) 0.6s forwards;
+}
+@keyframes loaderFill{to{width:100%}}
+.intro-tagline{
+  font-size:13px;color:rgba(255,255,255,0.3);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-top:14px;
+  animation:introUp 0.6s ease 1.4s both;
+}
+
+/* ========== LOGO SVG ========== */
+.logo-svg-wrap{width:44px;height:44px;flex-shrink:0}
+
+/* ========== NAVBAR ========== */
 nav{
   position:fixed;top:0;left:0;width:100%;z-index:1000;
-  background:rgba(13,13,26,0.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(212,160,23,0.2);
-  padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  height:72px;
-  transition:var(--transition);
+  background:rgba(8,8,18,0.96);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,160,23,0.15);
+  padding:0 5%;display:flex;align-items:center;justify-content:space-between;
+  height:72px;transition:var(--trans);
 }
 .logo{display:flex;align-items:center;gap:12px}
-.logo-icon{
-  width:44px;height:44px;
+.logo-wordmark{line-height:1.1}
+.logo-wordmark span{display:block;font-size:9px;letter-spacing:3px;color:rgba(212,160,23,0.6);text-transform:uppercase;font-weight:600}
+.logo-wordmark strong{
+  font-family:'Playfair Display',serif;
+  font-size:17px;font-weight:700;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;color:var(--dark);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.logo-text{line-height:1.1}
-.logo-text span{display:block;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600}
-.logo-text strong{font-size:18px;font-weight:900;color:var(--white);letter-spacing:0.5px}
-
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;transition:var(--transition);position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
-.nav-links a:hover{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:13px;font-weight:500;transition:var(--trans);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--trans)}
+.nav-links a:hover{color:var(--gold-light)}
 .nav-links a:hover::after{width:100%}
-
 .nav-cta{
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  color:var(--dark)!important;
-  padding:10px 22px;border-radius:50px;
-  font-weight:700;font-size:14px;
-  display:flex;align-items:center;gap:8px;
-  transition:var(--transition);
-  box-shadow:0 4px 16px rgba(212,160,23,0.35);
+  color:var(--dark)!important;padding:9px 20px;border-radius:50px;
+  font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 16px rgba(212,160,23,0.3);transition:var(--trans);
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,160,23,0.5)}
 .nav-cta::after{display:none!important}
-
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition)}
-
-/* Mobile menu */
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--trans)}
 .mobile-menu{
   display:none;position:fixed;top:72px;left:0;width:100%;
-  background:rgba(13,13,26,0.98);backdrop-filter:blur(12px);
-  padding:24px 5%;flex-direction:column;gap:8px;z-index:999;
-  border-bottom:1px solid rgba(212,160,23,0.2);
+  background:rgba(8,8,18,0.99);backdrop-filter:blur(16px);
+  padding:20px 5%;flex-direction:column;gap:4px;z-index:999;
+  border-bottom:1px solid rgba(212,160,23,0.15);
 }
-.mobile-menu a{
-  color:rgba(255,255,255,0.85);padding:12px 0;
-  border-bottom:1px solid rgba(255,255,255,0.07);
-  font-size:15px;font-weight:500;transition:var(--transition);
-}
+.mobile-menu a{color:rgba(255,255,255,0.8);padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:15px;font-weight:500;transition:var(--trans)}
 .mobile-menu a:hover{color:var(--gold);padding-left:8px}
 .mobile-menu.open{display:flex}
 
-/* ===== HERO ===== */
+/* ========== HERO ========== */
 #hero{
   min-height:100vh;
-  background:linear-gradient(135deg,#0d0d1a 0%,#1a1a2e 50%,#0f2a1a 100%);
+  background:linear-gradient(135deg,#080812 0%,#1a1a2e 55%,#0a1f0f 100%);
   display:flex;align-items:center;
-  padding:100px 5% 60px;
-  position:relative;overflow:hidden;
+  padding:100px 5% 60px;position:relative;overflow:hidden;
 }
-.hero-bg{
+.hero-grid-bg{
   position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 50%,rgba(212,160,23,0.08) 0%,transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%,rgba(26,122,60,0.12) 0%,transparent 70%);
+  background-image:linear-gradient(rgba(212,160,23,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,160,23,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
 }
-/* Animated particles */
-.particle{
-  position:absolute;border-radius:50%;
-  background:rgba(212,160,23,0.15);
-  animation:float linear infinite;
-}
-@keyframes float{
-  0%{transform:translateY(0) rotate(0deg);opacity:0}
-  10%{opacity:1}
-  90%{opacity:0.5}
-  100%{transform:translateY(-100vh) rotate(720deg);opacity:0}
+.hero-glow{
+  position:absolute;
+  top:20%;right:5%;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,160,23,0.07) 0%,transparent 70%);
 }
 .hero-inner{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:60px;align-items:center;
-  max-width:1200px;margin:0 auto;width:100%;
-  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:2;
 }
-.hero-badge{
+.hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(212,160,23,0.12);
-  border:1px solid rgba(212,160,23,0.3);
-  color:var(--gold-light);
-  padding:6px 16px;border-radius:50px;
-  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:20px;
+  background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.25);
+  color:var(--gold-light);padding:5px 16px;border-radius:50px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px;
 }
 .hero-title{
-  font-size:clamp(36px,5vw,64px);
-  font-weight:900;line-height:1.1;
-  color:var(--white);margin-bottom:20px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4.5vw,60px);font-weight:900;line-height:1.1;
+  color:var(--white);margin-bottom:18px;
 }
 .hero-title span{
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
 }
-.hero-sub{
-  font-size:17px;color:rgba(255,255,255,0.65);
-  line-height:1.7;margin-bottom:36px;max-width:480px;
-}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
-.btn-primary{
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:34px;max-width:460px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:42px}
+.btn-gold{
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:var(--dark);padding:14px 28px;border-radius:50px;
-  font-weight:700;font-size:15px;
-  display:flex;align-items:center;gap:10px;
-  box-shadow:0 6px 24px rgba(212,160,23,0.4);
-  transition:var(--transition);
+  font-weight:800;font-size:14px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 6px 24px rgba(212,160,23,0.4);transition:var(--trans);
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,160,23,0.55)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,160,23,0.6)}
 .btn-wa{
-  background:rgba(37,211,102,0.12);
-  border:1.5px solid rgba(37,211,102,0.4);
-  color:#25d366;padding:14px 28px;border-radius:50px;
-  font-weight:700;font-size:15px;
-  display:flex;align-items:center;gap:10px;
-  transition:var(--transition);
+  background:rgba(37,211,102,0.1);border:1.5px solid rgba(37,211,102,0.35);
+  color:#4ade80;padding:14px 28px;border-radius:50px;
+  font-weight:700;font-size:14px;display:flex;align-items:center;gap:10px;transition:var(--trans);
 }
 .btn-wa:hover{background:rgba(37,211,102,0.2);transform:translateY(-3px)}
-
-.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{
-  font-size:28px;font-weight:900;
+.hero-stats{display:flex;gap:0;flex-wrap:wrap}
+.hstat{padding:0 24px 0 0;margin:0 0 0 0}
+.hstat:not(:last-child){border-right:1px solid rgba(255,255,255,0.1);margin-right:24px;padding-right:24px}
+.hstat-num{
+  font-family:'Playfair Display',serif;
+  font-size:30px;font-weight:900;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px}
-.stat-divider{width:1px;background:rgba(255,255,255,0.1);align-self:stretch}
+.hstat-lbl{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;font-weight:600;letter-spacing:0.5px}
 
-/* Hero visual */
+/* Hero right visual */
 .hero-visual{position:relative}
-.hero-img-wrap{
+.hero-img-frame{
   border-radius:24px;overflow:hidden;
-  border:2px solid rgba(212,160,23,0.25);
-  box-shadow:0 24px 80px rgba(0,0,0,0.5);
-  aspect-ratio:4/3;
-  background:linear-gradient(135deg,#1a2a1a,#0d1a0d);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.hero-img-placeholder{
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-  color:rgba(255,255,255,0.3);
-}
-.hero-img-placeholder i{font-size:48px;color:rgba(212,160,23,0.3)}
-.hero-img-placeholder span{font-size:13px;letter-spacing:1px}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
-.hero-img-wrap img[src=""]{display:none}
-
-.badge-float{
-  position:absolute;
-  background:rgba(13,13,26,0.9);backdrop-filter:blur(8px);
-  border:1px solid rgba(212,160,23,0.3);
-  border-radius:12px;padding:10px 16px;
-  display:flex;align-items:center;gap:10px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
-}
-.badge-float.bl{bottom:-16px;left:-20px}
-.badge-float.tr{top:-16px;right:-20px}
-.badge-float i{color:var(--gold);font-size:18px}
-.badge-float strong{color:var(--white);font-size:14px;font-weight:700}
-.badge-float span{color:rgba(255,255,255,0.5);font-size:11px}
-
-/* ===== FEATURES STRIP ===== */
-.features-strip{
-  background:var(--dark);
-  padding:28px 5%;
-  border-top:1px solid rgba(212,160,23,0.15);
-  border-bottom:1px solid rgba(212,160,23,0.15);
-}
-.features-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-}
-.feature-item{
-  display:flex;align-items:center;gap:14px;
-  padding:16px;border-radius:12px;
-  transition:var(--transition);
-}
-.feature-item:hover{background:rgba(212,160,23,0.06)}
-.feature-icon{
-  width:44px;height:44px;border-radius:10px;flex-shrink:0;
-  background:linear-gradient(135deg,rgba(212,160,23,0.15),rgba(212,160,23,0.05));
   border:1px solid rgba(212,160,23,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--gold);
+  box-shadow:0 32px 80px rgba(0,0,0,0.6);
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,#111824,#0d1a0d);
+  display:flex;align-items:center;justify-content:center;position:relative;
 }
-.feature-text strong{color:var(--white);font-size:14px;font-weight:700;display:block}
-.feature-text span{color:rgba(255,255,255,0.45);font-size:12px}
+.hero-img-frame img{width:100%;height:100%;object-fit:cover}
+.hero-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,0.15)}
+.hero-ph i{font-size:52px;color:rgba(212,160,23,0.2)}
+.hero-ph span{font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.float-badge{
+  position:absolute;z-index:3;
+  background:rgba(8,8,18,0.92);backdrop-filter:blur(10px);
+  border:1px solid rgba(212,160,23,0.25);border-radius:14px;
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.4);
+}
+.float-badge.bl{bottom:-18px;left:-22px}
+.float-badge.tr{top:-18px;right:-22px}
+.float-badge .fb-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,rgba(212,160,23,0.2),rgba(212,160,23,0.08));display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gold)}
+.float-badge .fb-text strong{color:var(--white);font-size:13px;font-weight:700;display:block}
+.float-badge .fb-text span{color:rgba(255,255,255,0.4);font-size:11px}
 
-/* ===== SECTION COMMON ===== */
+/* ========== FEATURES STRIP ========== */
+.feat-strip{background:var(--dark);padding:24px 5%;border-top:1px solid rgba(212,160,23,0.1);border-bottom:1px solid rgba(212,160,23,0.1)}
+.feat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:12px;transition:var(--trans)}
+.feat-item:hover{background:rgba(212,160,23,0.05)}
+.feat-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.18);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold)}
+.feat-text strong{color:var(--white);font-size:13px;font-weight:700;display:block}
+.feat-text span{color:rgba(255,255,255,0.38);font-size:11px}
+
+/* ========== SECTIONS ========== */
 section{padding:80px 5%}
-.section-tag{
-  display:inline-block;
-  font-size:11px;letter-spacing:3px;font-weight:700;
-  text-transform:uppercase;color:var(--gold);
-  margin-bottom:10px;
-}
-.section-title{font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--dark2);line-height:1.2;margin-bottom:12px}
-.section-sub{font-size:16px;color:var(--text);max-width:560px;line-height:1.6}
-.section-head{text-align:center;margin-bottom:52px}
-.section-head .section-sub{margin:0 auto}
-.divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:14px auto 0}
-.divider.left{margin:14px 0 0}
+.stag{display:inline-block;font-size:10px;letter-spacing:3px;font-weight:700;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--dark2);line-height:1.2;margin-bottom:10px}
+.ssub{font-size:15px;color:var(--text);max-width:540px;line-height:1.65}
+.shead{text-align:center;margin-bottom:52px}
+.shead .ssub{margin:12px auto 0}
+.divg{width:52px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:12px auto 0}
+.divgl{margin:12px 0 0}
 
-/* ===== TENTS ===== */
-#tents{background:var(--gray)}
-.tents-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;
-}
-.tent-card{
-  background:var(--white);border-radius:var(--radius);
-  overflow:hidden;box-shadow:var(--shadow);
-  transition:var(--transition);
-  border:1px solid rgba(0,0,0,0.06);
-}
-.tent-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,0.15)}
-.tent-img{
-  aspect-ratio:4/3;
-  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;position:relative;
-}
-.tent-img-ph{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:rgba(26,122,60,0.4);
-}
-.tent-img-ph i{font-size:36px}
-.tent-img-ph span{font-size:11px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
-.tent-img img{width:100%;height:100%;object-fit:cover}
-.tent-body{padding:18px}
-.tent-name{font-size:16px;font-weight:800;color:var(--dark2);margin-bottom:4px}
-.tent-desc{font-size:13px;color:var(--text);line-height:1.5}
-.tent-tag{
-  display:inline-block;margin-top:10px;
-  background:rgba(212,160,23,0.1);color:#9a7000;
-  font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;
-}
-
-/* ===== PRICING ===== */
-#pricing{background:var(--dark2)}
-#pricing .section-title{color:var(--white)}
-#pricing .section-sub{color:rgba(255,255,255,0.55)}
-#pricing .section-tag{color:var(--gold)}
-.pricing-grid{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:32px;
-}
-.pricing-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(212,160,23,0.15);
-  border-radius:20px;padding:36px;
-  transition:var(--transition);
-}
-.pricing-card:hover{border-color:rgba(212,160,23,0.4);background:rgba(212,160,23,0.04)}
-.pricing-card h3{
-  font-size:20px;font-weight:800;color:var(--white);
-  margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
-}
-.pricing-card h3 i{color:var(--gold);font-size:18px}
-.pricing-card p{color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:24px}
-.price-list{display:flex;flex-direction:column;gap:8px}
-.price-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 14px;border-radius:8px;
-  background:rgba(255,255,255,0.04);
-  transition:var(--transition);
-}
-.price-row:hover{background:rgba(212,160,23,0.08)}
-.price-row span{font-size:14px;color:rgba(255,255,255,0.8)}
-.price-row strong{
-  font-size:15px;font-weight:800;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.price-note{
-  margin-top:24px;padding:14px;
-  background:rgba(37,211,102,0.08);
-  border:1px solid rgba(37,211,102,0.15);
-  border-radius:10px;
-  color:rgba(255,255,255,0.7);font-size:13px;line-height:1.5;
-}
-.price-note i{color:#25d366;margin-right:6px}
-
-/* ===== ABOUT ===== */
+/* ========== INTRO / ABOUT CINEMATIC ========== */
 #about{background:var(--white)}
-.about-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
-}
-.about-img-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;
-}
-.about-img-cell{
-  border-radius:14px;overflow:hidden;
-  aspect-ratio:1;
-  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
-  display:flex;align-items:center;justify-content:center;
-}
-.about-img-cell.tall{grid-row:span 2;aspect-ratio:auto}
-.about-img-ph{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:rgba(26,122,60,0.35);
-}
-.about-img-ph i{font-size:28px}
-.about-img-ph span{font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
-.about-img-cell img{width:100%;height:100%;object-fit:cover}
-.stats-row{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-  margin-top:36px;
-}
-.stat-box{
-  text-align:center;padding:18px 8px;
-  background:var(--gray);border-radius:12px;
-  transition:var(--transition);
-}
-.stat-box:hover{background:linear-gradient(135deg,rgba(212,160,23,0.1),rgba(212,160,23,0.05));transform:translateY(-4px)}
-.stat-box .num{
-  font-size:26px;font-weight:900;
-  background:linear-gradient(135deg,var(--gold),#9a7000);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.stat-box .lbl{font-size:11px;color:var(--text);margin-top:3px;font-weight:600}
+.about-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:180px 180px;gap:12px}
+.mos-cell{border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;position:relative}
+.mos-cell.span2{grid-column:span 2;grid-row:span 1}
+.mos-cell img{width:100%;height:100%;object-fit:cover}
+.mos-ph{display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(26,122,60,0.3);position:absolute}
+.mos-ph i{font-size:28px}
+.mos-ph span{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.stats-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+.sbox{text-align:center;padding:18px 8px;background:var(--gray);border-radius:12px;transition:var(--trans)}
+.sbox:hover{background:rgba(212,160,23,0.08);transform:translateY(-4px)}
+.sbox .n{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sbox .l{font-size:10px;color:var(--text);margin-top:3px;font-weight:600;letter-spacing:0.3px}
 
-/* ===== SERVICES ===== */
-#services{background:var(--gray)}
-.services-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;
-}
-.svc-card{
-  background:var(--white);border-radius:16px;
-  padding:28px;
-  border:1px solid rgba(0,0,0,0.06);
-  transition:var(--transition);
-  position:relative;overflow:hidden;
-}
-.svc-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-light));
-  transform:scaleX(0);transform-origin:left;
-  transition:var(--transition);
-}
-.svc-card:hover::before{transform:scaleX(1)}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
-.svc-icon{
-  width:52px;height:52px;border-radius:12px;
-  background:linear-gradient(135deg,rgba(212,160,23,0.12),rgba(212,160,23,0.04));
-  border:1px solid rgba(212,160,23,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;color:var(--gold);margin-bottom:18px;
-}
-.svc-card h3{font-size:17px;font-weight:800;color:var(--dark2);margin-bottom:8px}
-.svc-card p{font-size:14px;color:var(--text);line-height:1.6}
+/* ========== FILTERABLE GALLERY ========== */
+#gallery{background:var(--dark2)}
+#gallery .stitle{color:var(--white)}
+#gallery .ssub{color:rgba(255,255,255,0.45)}
+#gallery .stag{color:var(--gold)}
+#gallery .divg{margin:12px auto}
 
-/* ===== CTA BANNER ===== */
-.cta-banner{
-  background:linear-gradient(135deg,var(--green) 0%,#0f4d25 100%);
-  padding:56px 5%;position:relative;overflow:hidden;
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px;
 }
-.cta-banner::before{
-  content:'';position:absolute;
-  top:-50%;right:-10%;width:400px;height:400px;
-  background:rgba(212,160,23,0.08);border-radius:50%;
+.filter-btn{
+  padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;
+  cursor:pointer;transition:var(--trans);border:1.5px solid rgba(255,255,255,0.12);
+  background:transparent;color:rgba(255,255,255,0.55);letter-spacing:0.5px;
+  text-transform:uppercase;
 }
-.cta-inner{
-  max-width:1000px;margin:0 auto;
-  display:flex;justify-content:space-between;align-items:center;
-  gap:32px;flex-wrap:wrap;position:relative;z-index:1;
+.filter-btn:hover{border-color:rgba(212,160,23,0.4);color:var(--gold-light)}
+.filter-btn.active{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--dark);border-color:transparent;
+  box-shadow:0 4px 16px rgba(212,160,23,0.35);
 }
-.cta-text h2{font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--white);margin-bottom:8px}
-.cta-text p{color:rgba(255,255,255,0.7);font-size:15px}
-.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-white{
-  background:var(--white);
-  color:var(--green);padding:13px 26px;border-radius:50px;
-  font-weight:700;font-size:14px;
-  display:flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.15);
-  transition:var(--transition);
-}
-.btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.25)}
-.btn-wa2{
-  background:rgba(37,211,102,0.15);
-  border:1.5px solid rgba(37,211,102,0.5);
-  color:#25d366;padding:13px 26px;border-radius:50px;
-  font-weight:700;font-size:14px;
-  display:flex;align-items:center;gap:8px;
-  transition:var(--transition);
-}
-.btn-wa2:hover{background:rgba(37,211,102,0.28);transform:translateY(-3px)}
 
-/* ===== GALLERY ===== */
-#gallery{background:var(--white)}
 .gallery-grid{
   max-width:1200px;margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:auto auto;
-  gap:14px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
 }
-.gallery-cell{
+.g-item{
   border-radius:12px;overflow:hidden;
-  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
-  cursor:pointer;position:relative;
-  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1;position:relative;cursor:pointer;
+  background:linear-gradient(135deg,#1a2a1a,#0d1a0d);
+  transition:var(--trans);
 }
-.gallery-cell.wide{grid-column:span 2}
-.gallery-cell.tall{grid-row:span 2}
-.gallery-cell::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(212,160,23,0),rgba(212,160,23,0.35));
-  opacity:0;transition:var(--transition);
+.g-item:hover{transform:scale(1.03);box-shadow:0 16px 40px rgba(0,0,0,0.5)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:var(--trans)}
+.g-item:hover img{transform:scale(1.07)}
+.g-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.2) 50%,transparent 100%);
+  opacity:0;transition:var(--trans);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
 }
-.gallery-cell:hover::after{opacity:1}
-.gallery-ph{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:rgba(26,122,60,0.35);
-  z-index:1;padding:32px 12px;text-align:center;
-}
-.gallery-ph i{font-size:32px}
-.gallery-ph span{font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
-.gallery-cell img{width:100%;height:100%;object-fit:cover}
-
-/* ===== TESTIMONIALS ===== */
-#testimonials{background:var(--gray)}
-.testi-grid{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
-}
-.testi-card{
-  background:var(--white);border-radius:16px;
-  padding:28px;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow:0 4px 16px rgba(0,0,0,0.06);
-  transition:var(--transition);
-}
-.testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
-.stars{color:var(--gold);font-size:14px;margin-bottom:12px;letter-spacing:2px}
-.testi-card p{font-size:14px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:18px}
-.testi-author{display:flex;align-items:center;gap:12px}
-.author-avatar{
-  width:42px;height:42px;border-radius:50%;
+.g-item:hover .g-overlay{opacity:1}
+.g-name{font-size:13px;font-weight:800;color:var(--white);margin-bottom:4px}
+.g-price{
+  font-size:15px;font-weight:900;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;font-weight:800;color:var(--dark);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.author-info strong{font-size:14px;color:var(--dark2);font-weight:700}
-.author-info span{font-size:12px;color:var(--text)}
+.g-ph{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:rgba(255,255,255,0.12);height:100%;
+}
+.g-ph i{font-size:28px}
+.g-ph span{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.g-item[style*="display:none"]{display:none!important}
+.gallery-note{
+  text-align:center;margin-top:28px;
+  font-size:13px;color:rgba(255,255,255,0.3);
+  font-style:italic;
+}
 
-/* ===== FAQ ===== */
-#faq{background:var(--white)}
-.faq-inner{max-width:760px;margin:0 auto}
-.faq-item{
-  border:1px solid rgba(0,0,0,0.08);
-  border-radius:12px;margin-bottom:12px;
-  overflow:hidden;transition:var(--transition);
+/* Lightbox */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:5000;
+  background:rgba(0,0,0,0.92);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;flex-direction:column;gap:20px;
+  padding:20px;
 }
-.faq-item.open{border-color:rgba(212,160,23,0.3)}
-.faq-q{
+#lightbox.open{display:flex}
+#lightbox img{max-width:min(800px,92vw);max-height:70vh;object-fit:contain;border-radius:16px;border:1px solid rgba(212,160,23,0.2);box-shadow:0 24px 80px rgba(0,0,0,0.8)}
+#lb-info{text-align:center}
+#lb-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--white);margin-bottom:6px}
+#lb-price{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#lb-close{
+  position:absolute;top:20px;right:24px;
+  width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--white);cursor:pointer;transition:var(--trans);border:none;
+}
+#lb-close:hover{background:rgba(212,160,23,0.3)}
+#lb-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(37,211,102,0.15);border:1.5px solid rgba(37,211,102,0.4);
+  color:#4ade80;padding:11px 24px;border-radius:50px;
+  font-weight:700;font-size:14px;transition:var(--trans);margin-top:8px;
+}
+#lb-wa:hover{background:rgba(37,211,102,0.28)}
+
+/* ========== PRICING ========== */
+#pricing{background:var(--gray)}
+.pricing-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.pcard{
+  background:var(--white);border-radius:20px;padding:34px;
+  border:1px solid rgba(0,0,0,0.07);box-shadow:0 4px 24px rgba(0,0,0,0.06);
+  transition:var(--trans);
+}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.1)}
+.pcard h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--dark2);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.pcard h3 i{color:var(--gold)}
+.pcard .psub{font-size:13px;color:var(--text);margin-bottom:22px}
+.plist{display:flex;flex-direction:column;gap:6px}
+.prow{
   display:flex;justify-content:space-between;align-items:center;
-  padding:18px 20px;cursor:pointer;
-  font-weight:700;font-size:15px;color:var(--dark2);
-  user-select:none;
+  padding:10px 14px;border-radius:10px;background:var(--gray);transition:var(--trans);
 }
-.faq-q i{font-size:14px;color:var(--gold);transition:var(--transition);flex-shrink:0;margin-left:12px}
-.faq-item.open .faq-q i{transform:rotate(180deg)}
-.faq-a{
-  max-height:0;overflow:hidden;transition:max-height 0.35s ease;
-  padding:0 20px;font-size:14px;color:var(--text);line-height:1.7;
+.prow:hover{background:rgba(212,160,23,0.07)}
+.prow span{font-size:14px;color:var(--text)}
+.prow strong{font-size:14px;font-weight:800;color:var(--gold-dark)}
+.pnote{
+  margin-top:20px;padding:12px 14px;
+  background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.2);
+  border-radius:10px;font-size:12px;color:var(--text);line-height:1.5;
 }
-.faq-item.open .faq-a{max-height:200px;padding-bottom:18px}
+.pnote i{color:var(--gold);margin-right:6px}
 
-/* ===== CONTACT ===== */
+/* ========== SERVICES ========== */
+#services{background:var(--white)}
+.svc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{
+  background:var(--gray);border-radius:16px;padding:28px;
+  border:1px solid rgba(0,0,0,0.05);transition:var(--trans);position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;transition:var(--trans);
+}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover{background:var(--white);transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.09)}
+.svc-icon{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,rgba(212,160,23,0.1),rgba(212,160,23,0.04));border:1px solid rgba(212,160,23,0.18);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold);margin-bottom:16px}
+.svc-card h3{font-size:16px;font-weight:800;color:var(--dark2);margin-bottom:7px}
+.svc-card p{font-size:13px;color:var(--text);line-height:1.65}
+
+/* ========== CTA BANNER ========== */
+.cta-banner{
+  background:linear-gradient(135deg,#0d4a22,var(--green),#1a5e2e);
+  padding:56px 5%;position:relative;overflow:hidden;
+}
+.cta-banner::before{content:'';position:absolute;top:-40%;right:-8%;width:420px;height:420px;background:rgba(212,160,23,0.06);border-radius:50%}
+.cta-banner::after{content:'';position:absolute;bottom:-40%;left:-5%;width:300px;height:300px;background:rgba(255,255,255,0.03);border-radius:50%}
+.cta-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-text h2{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--white);margin-bottom:7px}
+.cta-text p{color:rgba(255,255,255,0.65);font-size:14px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--green);padding:13px 24px;border-radius:50px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:var(--trans)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.25)}
+.btn-wa2{background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.4);color:#4ade80;padding:13px 24px;border-radius:50px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;transition:var(--trans)}
+.btn-wa2:hover{background:rgba(37,211,102,0.24);transform:translateY(-3px)}
+
+/* ========== TESTIMONIALS ========== */
+#testimonials{background:var(--gray)}
+.testi-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{background:var(--white);border-radius:16px;padding:28px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 4px 16px rgba(0,0,0,0.05);transition:var(--trans)}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.09)}
+.stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.tcard p{font-size:13px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:16px}
+.tauth{display:flex;align-items:center;gap:10px}
+.tavatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:var(--dark)}
+.tauth strong{font-size:13px;color:var(--dark2);font-weight:700;display:block}
+.tauth span{font-size:11px;color:var(--text)}
+
+/* ========== FAQ ========== */
+#faq{background:var(--white)}
+.faq-wrap{max-width:740px;margin:0 auto}
+.fitem{border:1px solid rgba(0,0,0,0.08);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:var(--trans)}
+.fitem.open{border-color:rgba(212,160,23,0.35)}
+.fq{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;cursor:pointer;font-weight:700;font-size:14px;color:var(--dark2);user-select:none}
+.fq i{font-size:13px;color:var(--gold);transition:var(--trans);flex-shrink:0;margin-left:12px}
+.fitem.open .fq i{transform:rotate(180deg)}
+.fa2{max-height:0;overflow:hidden;transition:max-height 0.35s ease;padding:0 20px;font-size:13px;color:var(--text);line-height:1.7}
+.fitem.open .fa2{max-height:200px;padding-bottom:18px}
+
+/* ========== CONTACT ========== */
 #contact{background:var(--dark2)}
-#contact .section-title{color:var(--white)}
-#contact .section-tag{color:var(--gold)}
-.contact-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:52px;
-}
-.contact-info{padding-top:12px}
-.contact-item{
-  display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;
-}
-.c-icon{
-  width:46px;height:46px;border-radius:10px;flex-shrink:0;
-  background:rgba(212,160,23,0.1);
-  border:1px solid rgba(212,160,23,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--gold);
-}
-.c-text strong{color:var(--white);font-size:14px;font-weight:700;display:block;margin-bottom:3px}
-.c-text span{color:rgba(255,255,255,0.55);font-size:14px}
-.social-row{display:flex;gap:12px;margin-top:8px}
-.social-btn{
-  width:40px;height:40px;border-radius:10px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;color:rgba(255,255,255,0.6);
-  transition:var(--transition);
-}
-.social-btn:hover{background:rgba(212,160,23,0.15);color:var(--gold);border-color:rgba(212,160,23,0.3);transform:translateY(-3px)}
-.contact-form{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;padding:36px;
-}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-group{margin-bottom:14px}
-.form-group label{font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.5px;display:block;margin-bottom:6px}
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:10px;padding:12px 14px;
-  color:var(--white);font-size:14px;font-family:inherit;
-  outline:none;transition:var(--transition);
-  -webkit-appearance:none;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  border-color:rgba(212,160,23,0.5);
-  background:rgba(212,160,23,0.06);
-}
-.form-group select option{background:#1a1a2e;color:var(--white)}
-.form-group textarea{resize:vertical;min-height:90px}
-.btn-submit{
-  width:100%;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  color:var(--dark);padding:14px;border-radius:50px;
-  font-weight:800;font-size:15px;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:var(--transition);
-  box-shadow:0 6px 20px rgba(212,160,23,0.35);
-}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,160,23,0.5)}
+#contact .stitle{color:var(--white)}
+#contact .stag{color:var(--gold)}
+.contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.cinfo{padding-top:8px}
+.citem{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.cico{width:44px;height:44px;border-radius:10px;flex-shrink:0;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.2);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold)}
+.ctxt strong{color:var(--white);font-size:13px;font-weight:700;display:block;margin-bottom:3px}
+.ctxt span{color:rgba(255,255,255,0.45);font-size:13px}
+.soc-row{display:flex;gap:10px;margin-top:6px}
+.soc-btn{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:15px;color:rgba(255,255,255,0.5);transition:var(--trans)}
+.soc-btn:hover{background:rgba(212,160,23,0.12);color:var(--gold);border-color:rgba(212,160,23,0.3);transform:translateY(-3px)}
+.cform{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:34px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cgroup{margin-bottom:12px}
+.cgroup label{font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.5px;display:block;margin-bottom:5px}
+.cgroup input,.cgroup select,.cgroup textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:11px 13px;color:var(--white);font-size:13px;font-family:inherit;outline:none;transition:var(--trans);-webkit-appearance:none}
+.cgroup input::placeholder,.cgroup textarea::placeholder{color:rgba(255,255,255,0.2)}
+.cgroup input:focus,.cgroup select:focus,.cgroup textarea:focus{border-color:rgba(212,160,23,0.45);background:rgba(212,160,23,0.04)}
+.cgroup select option{background:#1a1a2e}
+.cgroup textarea{resize:vertical;min-height:86px}
+.btn-send{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);padding:14px;border-radius:50px;font-weight:800;font-size:14px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:var(--trans);box-shadow:0 6px 20px rgba(212,160,23,0.35)}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,160,23,0.5)}
 
-/* ===== FOOTER ===== */
-footer{background:#080812;padding:52px 5% 24px;border-top:1px solid rgba(212,160,23,0.1)}
-.footer-top{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  margin-bottom:24px;
-}
-.footer-brand p{color:rgba(255,255,255,0.4);font-size:13px;line-height:1.7;margin:12px 0 20px}
-.footer-col h4{font-size:13px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
-.footer-col a{display:block;color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:10px;transition:var(--transition)}
-.footer-col a:hover{color:var(--gold);padding-left:4px}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  font-size:12px;color:rgba(255,255,255,0.25);
-}
-.footer-bottom a{color:rgba(255,255,255,0.25);transition:var(--transition)}
-.footer-bottom a:hover{color:var(--gold)}
+/* ========== FOOTER ========== */
+footer{background:var(--dark);padding:50px 5% 22px;border-top:1px solid rgba(212,160,23,0.08)}
+.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:20px}
+.fbrand p{color:rgba(255,255,255,0.35);font-size:12px;line-height:1.7;margin:12px 0 18px}
+.fcol h4{font-size:11px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.fcol a{display:block;color:rgba(255,255,255,0.35);font-size:12px;margin-bottom:9px;transition:var(--trans)}
+.fcol a:hover{color:var(--gold);padding-left:4px}
+.footer-bot{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:11px;color:rgba(255,255,255,0.2)}
+.footer-bot a{color:rgba(255,255,255,0.2);transition:var(--trans)}
+.footer-bot a:hover{color:var(--gold)}
 
-/* Floating WhatsApp */
-.wa-float{
-  position:fixed;bottom:28px;right:28px;z-index:998;
-  width:56px;height:56px;border-radius:50%;
-  background:#25d366;
+/* Floating WA */
+.wa-fab{
+  position:fixed;bottom:26px;right:26px;z-index:998;
+  width:54px;height:54px;border-radius:50%;background:#25d366;
   display:flex;align-items:center;justify-content:center;
-  font-size:26px;color:var(--white);
+  font-size:24px;color:var(--white);
   box-shadow:0 6px 24px rgba(37,211,102,0.45);
-  transition:var(--transition);
-  animation:pulse-wa 2.5s ease-in-out infinite;
+  transition:var(--trans);animation:waPulse 2.5s ease infinite;
 }
-.wa-float:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,0.6)}
-@keyframes pulse-wa{
-  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.45)}
-  50%{box-shadow:0 6px 36px rgba(37,211,102,0.7),0 0 0 10px rgba(37,211,102,0.08)}
-}
+.wa-fab:hover{transform:scale(1.1)}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.45)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.7),0 0 0 10px rgba(37,211,102,0.07)}}
 
-/* ===== ANIMATIONS ===== */
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-.fade-up:nth-child(2){transition-delay:0.1s}
-.fade-up:nth-child(3){transition-delay:0.2s}
-.fade-up:nth-child(4){transition-delay:0.3s}
-.fade-up:nth-child(5){transition-delay:0.4s}
-.fade-up:nth-child(6){transition-delay:0.5s}
+/* Scroll reveal */
+.sr{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.sr.vis{opacity:1;transform:translateY(0)}
+.sr:nth-child(2){transition-delay:.1s}.sr:nth-child(3){transition-delay:.18s}.sr:nth-child(4){transition-delay:.26s}.sr:nth-child(5){transition-delay:.34s}.sr:nth-child(6){transition-delay:.42s}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .hero-inner{grid-template-columns:1fr;gap:36px}
-  .hero-visual{display:none}
-  .features-grid{grid-template-columns:repeat(2,1fr)}
-  .about-inner{grid-template-columns:1fr;gap:40px}
-  .about-img-grid{display:none}
+/* ========== RESPONSIVE ========== */
+@media(max-width:960px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr}.hero-visual{display:none}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .about-wrap{grid-template-columns:1fr}.about-mosaic{display:none}
   .pricing-grid{grid-template-columns:1fr}
-  .contact-inner{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-cell.wide{grid-column:span 1}
-  .gallery-cell.tall{grid-row:span 1}
-  .footer-top{grid-template-columns:1fr 1fr;gap:28px}
-  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .contact-wrap{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:24px}
+  .stats-boxes{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
-  .features-grid{grid-template-columns:1fr}
-  .hero-stats{gap:20px}
-  .form-row{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr}
-  .cta-inner{flex-direction:column;text-align:center}
-  .cta-btns{justify-content:center}
+  .cta-inner{flex-direction:column;text-align:center}.cta-btns{justify-content:center}
+  .crow{grid-template-columns:1fr}
+  .hero-stats{gap:16px;flex-wrap:wrap}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!-- ========== INTRO SCREEN ========== -->
+<div id="intro-screen">
+  <div class="intro-logo">
+    <!-- Tent SVG Logo -->
+    <svg class="intro-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ig1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#9a7000"/>
+          <stop offset="50%" stop-color="#D4A017"/>
+          <stop offset="100%" stop-color="#F0C040"/>
+        </linearGradient>
+        <linearGradient id="ig2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#F0C040" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#D4A017" stop-opacity="0.6"/>
+        </linearGradient>
+      </defs>
+      <!-- Main tent body -->
+      <path d="M50 8 L88 72 L12 72 Z" fill="url(#ig1)" opacity="0.95"/>
+      <!-- Inner shadow panel -->
+      <path d="M50 8 L70 72 L30 72 Z" fill="url(#ig2)" opacity="0.5"/>
+      <!-- Center pole line -->
+      <line x1="50" y1="8" x2="50" y2="72" stroke="#F0C040" stroke-width="1.5" opacity="0.6"/>
+      <!-- Base bar -->
+      <rect x="10" y="72" width="80" height="5" rx="2.5" fill="url(#ig1)"/>
+      <!-- Pennant top -->
+      <circle cx="50" cy="8" r="4" fill="#F0C040"/>
+      <!-- Flag pennant -->
+      <path d="M50 2 L56 6 L50 8 Z" fill="#F0C040"/>
+      <!-- Decorative arch lines -->
+      <path d="M12 72 Q50 50 88 72" stroke="#F0C040" stroke-width="1" fill="none" opacity="0.35"/>
+    </svg>
+    <div class="intro-line"></div>
+    <div class="intro-brand">Brandshine<br>Tent Makers</div>
+    <div class="intro-sub">Premium Event Solutions · Kenya</div>
+  </div>
+  <div class="intro-loader"><div class="intro-loader-bar"></div></div>
+  <div class="intro-tagline">Making Every Event Unforgettable</div>
+</div>
+
+<!-- ========== NAVBAR ========== -->
 <nav id="navbar">
   <div class="logo">
-    <div class="logo-icon"><i class="fas fa-tent"></i></div>
-    <div class="logo-text">
+    <div class="logo-svg-wrap">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ng1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#9a7000"/>
+            <stop offset="100%" stop-color="#F0C040"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 10 L86 70 L14 70 Z" fill="url(#ng1)" opacity="0.95"/>
+        <path d="M50 10 L68 70 L32 70 Z" fill="#F0C040" opacity="0.4"/>
+        <rect x="12" y="70" width="76" height="5" rx="2.5" fill="url(#ng1)"/>
+        <circle cx="50" cy="10" r="3.5" fill="#F0C040"/>
+        <path d="M50 4 L55 8 L50 10 Z" fill="#F0C040"/>
+      </svg>
+    </div>
+    <div class="logo-wordmark">
       <span>Premium Event Solutions</span>
       <strong>Brandshine Tent Makers</strong>
     </div>
   </div>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
-    <li><a href="#tents">Tents</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="tel:0713361577" class="nav-cta"><i class="fas fa-phone"></i> 0713 361 577</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="closeMenu()">Home</a>
-  <a href="#tents" onclick="closeMenu()">Our Tents</a>
-  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery & Prices</a>
+  <a href="#pricing" onclick="closeMenu()">Full Pricing</a>
   <a href="#about" onclick="closeMenu()">About Us</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="tel:0713361577" style="color:var(--gold);font-weight:700"><i class="fas fa-phone" style="margin-right:8px"></i>0713 361 577</a>
+  <a href="tel:0713361577" style="color:var(--gold);font-weight:800"><i class="fas fa-phone" style="margin-right:8px"></i>0713 361 577</a>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- ========== HERO ========== -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <!-- Particles -->
-  <div class="particle" style="width:6px;height:6px;left:15%;animation-duration:12s;animation-delay:0s"></div>
-  <div class="particle" style="width:4px;height:4px;left:35%;animation-duration:18s;animation-delay:3s"></div>
-  <div class="particle" style="width:8px;height:8px;left:55%;animation-duration:15s;animation-delay:1s"></div>
-  <div class="particle" style="width:5px;height:5px;left:75%;animation-duration:20s;animation-delay:6s"></div>
-  <div class="particle" style="width:3px;height:3px;left:90%;animation-duration:14s;animation-delay:2s"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge"><i class="fas fa-star"></i> Kenya's Trusted Tent Makers</div>
-      <h1 class="hero-title">We Make Your<br>Events <span>Perfect &amp;<br>Memorable</span></h1>
-      <p class="hero-sub">Premium quality tents for weddings, corporate events, parties, church functions &amp; more. Strong, elegant and affordable solutions across Kenya.</p>
+    <div>
+      <div class="hero-eyebrow"><i class="fas fa-star"></i>&nbsp; Kenya's #1 Tent Makers</div>
+      <h1 class="hero-title">
+        We Make Your Events
+        <span>Perfect &amp; Memorable</span>
+      </h1>
+      <p class="hero-sub">Premium quality tents for weddings, corporate events, parties, church functions &amp; more — delivered and set up anywhere in Kenya.</p>
       <div class="hero-btns">
-        <a href="tel:0713361577" class="btn-primary"><i class="fas fa-phone"></i> Call Now: 0713 361 577</a>
-        <a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20renting%20a%20tent%20from%20Brandshine%20Tent%20Makers." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        <a href="tel:0713361577" class="btn-gold"><i class="fas fa-phone"></i> Call: 0713 361 577</a>
+        <a href="https://wa.me/254713361577?text=Hello%2C+I'm+interested+in+tent+hire+from+Brandshine+Tent+Makers." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Events Done</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Happy Clients</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Tents Available</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+        <div class="hstat"><div class="hstat-num">100+</div><div class="hstat-lbl">Events Done</div></div>
+        <div class="hstat"><div class="hstat-num">100+</div><div class="hstat-lbl">Happy Clients</div></div>
+        <div class="hstat"><div class="hstat-num">50+</div><div class="hstat-lbl">Tents in Stock</div></div>
+        <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-lbl">Satisfaction</div></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-img-wrap" id="heroImgWrap">
-        <!-- Replace src with your hero image path -->
-        <img src="" alt="Brandshine Premium Tent Setup" id="heroImg" onerror="this.style.display='none'"/>
-        <div class="hero-img-placeholder" id="heroPlaceholder">
-          <i class="fas fa-tent"></i>
-          <span>Your Hero Photo Here</span>
-        </div>
+      <div class="hero-img-frame">
+        <!-- HERO PHOTO: replace src below -->
+        <img src="" alt="Brandshine Premium Tent" id="heroImg" onerror="this.style.display='none'"/>
+        <div class="hero-ph" id="heroPh"><i class="fas fa-tent"></i><span>Upload Your Hero Photo Here</span></div>
       </div>
-      <div class="badge-float bl">
-        <i class="fas fa-shield-check"></i>
-        <div><strong>Premium Quality</strong><br><span>Weather Resistant</span></div>
+      <div class="float-badge bl">
+        <div class="fb-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="fb-text"><strong>Premium Quality</strong><span>Weather Resistant</span></div>
       </div>
-      <div class="badge-float tr">
-        <i class="fas fa-truck"></i>
-        <div><strong>Fast Delivery</strong><br><span>Setup Included</span></div>
+      <div class="float-badge tr">
+        <div class="fb-icon"><i class="fas fa-truck-fast"></i></div>
+        <div class="fb-text"><strong>Fast Setup</strong><span>Nationwide Delivery</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FEATURES STRIP ===== -->
-<div class="features-strip">
-  <div class="features-grid">
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><i class="fas fa-medal"></i></div>
-      <div class="feature-text"><strong>High Quality Materials</strong><span>Strong, durable &amp; weather resistant</span></div>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><i class="fas fa-users"></i></div>
-      <div class="feature-text"><strong>Professional Team</strong><span>Experienced, committed to excellence</span></div>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><i class="fas fa-tag"></i></div>
-      <div class="feature-text"><strong>Affordable Prices</strong><span>Best quality at competitive rates</span></div>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><i class="fas fa-clock"></i></div>
-      <div class="feature-text"><strong>Timely Delivery</strong><span>We deliver &amp; set up on time, every time</span></div>
-    </div>
+<!-- ========== FEATURES STRIP ========== -->
+<div class="feat-strip">
+  <div class="feat-grid">
+    <div class="feat-item sr"><div class="feat-icon"><i class="fas fa-medal"></i></div><div class="feat-text"><strong>High Quality Materials</strong><span>Durable &amp; weather resistant</span></div></div>
+    <div class="feat-item sr"><div class="feat-icon"><i class="fas fa-users-gear"></i></div><div class="feat-text"><strong>Professional Team</strong><span>Experienced &amp; reliable</span></div></div>
+    <div class="feat-item sr"><div class="feat-icon"><i class="fas fa-tag"></i></div><div class="feat-text"><strong>Affordable Prices</strong><span>Best value in Kenya</span></div></div>
+    <div class="feat-item sr"><div class="feat-icon"><i class="fas fa-clock"></i></div><div class="feat-text"><strong>On-Time Delivery</strong><span>Setup before your event starts</span></div></div>
   </div>
 </div>
 
-<!-- ===== TENTS ===== -->
-<section id="tents">
-  <div class="section-head fade-up">
-    <div class="section-tag">Our Tents</div>
-    <h2 class="section-title">Our Quality Tent Collection</h2>
-    <div class="divider"></div>
-    <p class="section-sub" style="margin-top:14px">From intimate gatherings to grand events — we have the perfect tent for every occasion.</p>
+<!-- ========== FILTERABLE GALLERY ========== -->
+<section id="gallery">
+  <div class="shead sr">
+    <div class="stag">Our Work</div>
+    <h2 class="stitle" style="color:#fff">Tent Gallery &amp; Prices</h2>
+    <div class="divg"></div>
+    <p class="ssub">Hover any tent to see its price. Click to enquire via WhatsApp.</p>
   </div>
-  <div class="tents-grid">
-    <!-- Tent cards — swap img src with real photos -->
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Pagoda Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Pagoda Tents</div>
-        <div class="tent-desc">Elegant &amp; stylish tents perfect for weddings and upscale events.</div>
-        <span class="tent-tag">Most Popular</span>
-      </div>
-    </div>
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Pole Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Pole Tents</div>
-        <div class="tent-desc">Spacious and strong tents ideal for large gatherings and festivals.</div>
-        <span class="tent-tag">Large Events</span>
-      </div>
-    </div>
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Marquee Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Marquee Tents</div>
-        <div class="tent-desc">Ideal for weddings, parties and corporate events with elegant styling.</div>
-        <span class="tent-tag">Best for Weddings</span>
-      </div>
-    </div>
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Canopy Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Canopy Tents</div>
-        <div class="tent-desc">Simple, practical and versatile — perfect for any outdoor event.</div>
-        <span class="tent-tag">Versatile</span>
-      </div>
-    </div>
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Gazebo Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Gazebo Tents</div>
-        <div class="tent-desc">Compact and charming — great for garden parties and small celebrations.</div>
-        <span class="tent-tag">Compact</span>
-      </div>
-    </div>
-    <div class="tent-card fade-up">
-      <div class="tent-img">
-        <img src="" alt="Custom Tent" onerror="this.style.display='none'"/>
-        <div class="tent-img-ph"><i class="fas fa-paint-brush"></i><span>Photo Coming</span></div>
-      </div>
-      <div class="tent-body">
-        <div class="tent-name">Custom Tents</div>
-        <div class="tent-desc">Customized designs built to match your exact vision and branding needs.</div>
-        <span class="tent-tag">Custom Order</span>
-      </div>
-    </div>
+
+  <div class="filter-bar sr">
+    <button class="filter-btn active" data-filter="all">All Tents</button>
+    <button class="filter-btn" data-filter="pagoda">Pagoda</button>
+    <button class="filter-btn" data-filter="pole">Pole Tents</button>
+    <button class="filter-btn" data-filter="marquee">Marquee</button>
+    <button class="filter-btn" data-filter="canopy">Canopy</button>
+    <button class="filter-btn" data-filter="gazebo">Gazebo</button>
+    <button class="filter-btn" data-filter="custom">Custom</button>
   </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- =====================================================================
+         PHOTO SLOTS — replace src="" with your actual image file paths.
+         data-name = tent name shown in lightbox
+         data-price = price shown in lightbox
+         data-cat = filter category (pagoda/pole/marquee/canopy/gazebo/custom)
+         ===================================================================== -->
+
+    <!-- PAGODA TENTS -->
+    <div class="g-item sr" data-cat="pagoda" data-name="Pagoda Tent – 100 Seater" data-price="KES 88,000" onclick="openLB(this)">
+      <img src="" alt="Pagoda Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pagoda · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pagoda Tent – 100 Seater</div><div class="g-price">KES 88,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pagoda" data-name="Pagoda Tent – 150 Seater" data-price="KES 140,000" onclick="openLB(this)">
+      <img src="" alt="Pagoda Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pagoda · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pagoda Tent – 150 Seater</div><div class="g-price">KES 140,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pagoda" data-name="Pagoda Tent – 200 Seater" data-price="KES 175,000" onclick="openLB(this)">
+      <img src="" alt="Pagoda Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pagoda · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pagoda Tent – 200 Seater</div><div class="g-price">KES 175,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pagoda" data-name="Pagoda Tent – 300 Seater" data-price="KES 260,000" onclick="openLB(this)">
+      <img src="" alt="Pagoda Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pagoda · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pagoda Tent – 300 Seater</div><div class="g-price">KES 260,000</div></div>
+    </div>
+
+    <!-- POLE TENTS -->
+    <div class="g-item sr" data-cat="pole" data-name="Pole Tent – 50 Seater" data-price="KES 52,000" onclick="openLB(this)">
+      <img src="" alt="Pole Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pole · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pole Tent – 50 Seater</div><div class="g-price">KES 52,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pole" data-name="Pole Tent – 100 Seater" data-price="KES 88,000" onclick="openLB(this)">
+      <img src="" alt="Pole Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pole · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pole Tent – 100 Seater</div><div class="g-price">KES 88,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pole" data-name="Pole Tent – 200 Seater" data-price="KES 175,000" onclick="openLB(this)">
+      <img src="" alt="Pole Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pole · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pole Tent – 200 Seater</div><div class="g-price">KES 175,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="pole" data-name="Pole Tent – 300 Seater" data-price="KES 260,000" onclick="openLB(this)">
+      <img src="" alt="Pole Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Pole · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Pole Tent – 300 Seater</div><div class="g-price">KES 260,000</div></div>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="g-item sr" data-cat="marquee" data-name="Marquee Tent – 100 Seater" data-price="KES 88,000" onclick="openLB(this)">
+      <img src="" alt="Marquee Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Marquee · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Marquee Tent – 100 Seater</div><div class="g-price">KES 88,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="marquee" data-name="Marquee Tent – 200 Seater" data-price="KES 175,000" onclick="openLB(this)">
+      <img src="" alt="Marquee Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Marquee · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Marquee Tent – 200 Seater</div><div class="g-price">KES 175,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="marquee" data-name="Marquee Tent – 250 Seater" data-price="KES 220,000" onclick="openLB(this)">
+      <img src="" alt="Marquee Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Marquee · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Marquee Tent – 250 Seater</div><div class="g-price">KES 220,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="marquee" data-name="Marquee Tent – 300 Seater" data-price="KES 260,000" onclick="openLB(this)">
+      <img src="" alt="Marquee Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Marquee · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Marquee Tent – 300 Seater</div><div class="g-price">KES 260,000</div></div>
+    </div>
+
+    <!-- CANOPY -->
+    <div class="g-item sr" data-cat="canopy" data-name="Canopy Tent – 50 Seater" data-price="KES 52,000" onclick="openLB(this)">
+      <img src="" alt="Canopy Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Canopy · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Canopy Tent – 50 Seater</div><div class="g-price">KES 52,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="canopy" data-name="Canopy Tent – 100 Seater" data-price="KES 88,000" onclick="openLB(this)">
+      <img src="" alt="Canopy Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Canopy · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Canopy Tent – 100 Seater</div><div class="g-price">KES 88,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="canopy" data-name="Canopy Tent – 150 Seater" data-price="KES 140,000" onclick="openLB(this)">
+      <img src="" alt="Canopy Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Canopy · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Canopy Tent – 150 Seater</div><div class="g-price">KES 140,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="canopy" data-name="Canopy Tent – 200 Seater" data-price="KES 175,000" onclick="openLB(this)">
+      <img src="" alt="Canopy Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-tent"></i><span>Canopy · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Canopy Tent – 200 Seater</div><div class="g-price">KES 175,000</div></div>
+    </div>
+
+    <!-- GAZEBO -->
+    <div class="g-item sr" data-cat="gazebo" data-name="Gazebo Tent" data-price="KES 32,000" onclick="openLB(this)">
+      <img src="" alt="Gazebo Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-archway"></i><span>Gazebo · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Gazebo Tent</div><div class="g-price">KES 32,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="gazebo" data-name="Gazebo Tent – Garden Style" data-price="KES 32,000" onclick="openLB(this)">
+      <img src="" alt="Gazebo Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-archway"></i><span>Gazebo · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Gazebo Tent – Garden Style</div><div class="g-price">KES 32,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="gazebo" data-name="Gazebo Tent – Premium" data-price="KES 32,000" onclick="openLB(this)">
+      <img src="" alt="Gazebo Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-archway"></i><span>Gazebo · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Gazebo Tent – Premium</div><div class="g-price">KES 32,000</div></div>
+    </div>
+    <div class="g-item sr" data-cat="gazebo" data-name="Gazebo Tent – Event Setup" data-price="KES 32,000" onclick="openLB(this)">
+      <img src="" alt="Gazebo Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-archway"></i><span>Gazebo · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Gazebo Tent – Event Setup</div><div class="g-price">KES 32,000</div></div>
+    </div>
+
+    <!-- CUSTOM -->
+    <div class="g-item sr" data-cat="custom" data-name="Custom Tent – Your Design" data-price="Quote on Request" onclick="openLB(this)">
+      <img src="" alt="Custom Tent" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-paint-brush"></i><span>Custom · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Custom Tent – Your Design</div><div class="g-price">Quote on Request</div></div>
+    </div>
+    <div class="g-item sr" data-cat="custom" data-name="Custom Branded Tent" data-price="Quote on Request" onclick="openLB(this)">
+      <img src="" alt="Custom Tent 2" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-paint-brush"></i><span>Custom · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Custom Branded Tent</div><div class="g-price">Quote on Request</div></div>
+    </div>
+    <div class="g-item sr" data-cat="custom" data-name="Custom Color Tent" data-price="Quote on Request" onclick="openLB(this)">
+      <img src="" alt="Custom Tent 3" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-paint-brush"></i><span>Custom · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Custom Color Tent</div><div class="g-price">Quote on Request</div></div>
+    </div>
+    <div class="g-item sr" data-cat="custom" data-name="Custom Event Tent" data-price="Quote on Request" onclick="openLB(this)">
+      <img src="" alt="Custom Tent 4" onerror="this.style.display='none'"/>
+      <div class="g-ph"><i class="fas fa-paint-brush"></i><span>Custom · Add Photo</span></div>
+      <div class="g-overlay"><div class="g-name">Custom Event Tent</div><div class="g-price">Quote on Request</div></div>
+    </div>
+
+  </div>
+  <p class="gallery-note sr">24 tent styles shown · Hover to see price · Click to order via WhatsApp</p>
 </section>
 
-<!-- ===== PRICING ===== -->
+<!-- Lightbox -->
+<div id="lightbox">
+  <button id="lb-close" onclick="closeLB()"><i class="fas fa-times"></i></button>
+  <img id="lb-img" src="" alt=""/>
+  <div id="lb-info">
+    <div id="lb-name"></div>
+    <div id="lb-price"></div>
+    <a id="lb-wa" href="#" target="_blank"><i class="fab fa-whatsapp"></i> Order This Tent on WhatsApp</a>
+  </div>
+</div>
+
+<!-- ========== PRICING ========== -->
 <section id="pricing">
-  <div class="section-head fade-up">
-    <div class="section-tag">Transparent Pricing</div>
-    <h2 class="section-title">Tent &amp; Chair Prices</h2>
-    <div class="divider"></div>
-    <p class="section-sub" style="margin-top:14px;color:rgba(255,255,255,0.5)">Pay after delivery. Special monthly offers available. Contact us for a custom quote.</p>
+  <div class="shead sr">
+    <div class="stag">Transparent Pricing</div>
+    <h2 class="stitle">Full Price List</h2>
+    <div class="divg"></div>
+    <p class="ssub" style="margin-top:14px">All prices include delivery &amp; professional setup. Payment after delivery available.</p>
   </div>
   <div class="pricing-grid">
-    <!-- Tents -->
-    <div class="pricing-card fade-up">
+    <div class="pcard sr">
       <h3><i class="fas fa-tent"></i> Tent Sizes &amp; Prices</h3>
-      <p>All sizes available. Setup &amp; delivery included.</p>
-      <div class="price-list">
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>300 Seater Tent</span><strong>KES 260,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>250 Seater Tent</span><strong>KES 220,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>200 Seater Tent</span><strong>KES 175,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>150 Seater Tent</span><strong>KES 140,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>100 Seater Tent</span><strong>KES 88,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>50 Seater Tent</span><strong>KES 52,000</strong></div>
-        <div class="price-row"><span><i class="fas fa-archway" style="margin-right:8px;color:var(--gold);opacity:.6"></i>Gazebo Tent</span><strong>KES 32,000</strong></div>
+      <p class="psub">Choose the right size for your event. Setup included.</p>
+      <div class="plist">
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>300 Seater</span><strong>KES 260,000</strong></div>
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>250 Seater</span><strong>KES 220,000</strong></div>
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>200 Seater</span><strong>KES 175,000</strong></div>
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>150 Seater</span><strong>KES 140,000</strong></div>
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>100 Seater</span><strong>KES 88,000</strong></div>
+        <div class="prow"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.5"></i>50 Seater</span><strong>KES 52,000</strong></div>
+        <div class="prow"><span><i class="fas fa-archway" style="margin-right:8px;color:var(--gold);opacity:.5"></i>Gazebo Tent</span><strong>KES 32,000</strong></div>
       </div>
-      <div class="price-note"><i class="fab fa-whatsapp"></i> Buy 100 seater + chairs? <strong>Get 3 chairs FREE!</strong> Payment after delivery available.</div>
+      <div class="pnote"><i class="fab fa-whatsapp"></i> <strong>Special offer:</strong> Buy 100-seater + chairs — get 3 chairs FREE! Payment after delivery available.</div>
     </div>
-    <!-- Chairs -->
-    <div class="pricing-card fade-up">
+    <div class="pcard sr">
       <h3><i class="fas fa-chair"></i> Plastic Chairs (Per Chair)</h3>
-      <p>Multiple trusted brands available at competitive prices.</p>
-      <div class="price-list">
-        <div class="price-row"><span>Kenpoly Chair</span><strong>KES 730</strong></div>
-        <div class="price-row"><span>Adix Chair</span><strong>KES 850</strong></div>
-        <div class="price-row"><span>N.P.L Chair</span><strong>KES 720</strong></div>
-        <div class="price-row"><span>Sosana Chair</span><strong>KES 700</strong></div>
-        <div class="price-row"><span>Anytime Chair</span><strong>KES 700</strong></div>
-        <div class="price-row"><span>Acme Chair</span><strong>KES 850</strong></div>
-        <div class="price-row"><span>Kenpoly 2006 Chair</span><strong>KES 1,050</strong></div>
+      <p class="psub">Multiple trusted brands. Bulk discounts available.</p>
+      <div class="plist">
+        <div class="prow"><span>Kenpoly Chair</span><strong>KES 730</strong></div>
+        <div class="prow"><span>Adix Chair</span><strong>KES 850</strong></div>
+        <div class="prow"><span>N.P.L Chair</span><strong>KES 720</strong></div>
+        <div class="prow"><span>Sosana Chair</span><strong>KES 700</strong></div>
+        <div class="prow"><span>Anytime Chair</span><strong>KES 700</strong></div>
+        <div class="prow"><span>Acme Chair</span><strong>KES 850</strong></div>
+        <div class="prow"><span>Kenpoly 2006 Chair</span><strong>KES 1,050</strong></div>
       </div>
-      <div class="price-note"><i class="fas fa-info-circle" style="color:var(--gold)"></i> Prices may vary. Contact us for bulk order discounts and current offers.</div>
+      <div class="pnote"><i class="fas fa-info-circle" style="color:var(--gold)"></i> Prices may vary. Call for current bulk order discounts and special offers.</div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
+<!-- ========== ABOUT ========== -->
 <section id="about">
-  <div class="about-inner">
-    <div class="about-imgs fade-up">
-      <div class="about-img-grid">
-        <div class="about-img-cell tall">
-          <img src="" alt="Brandshine tent setup" onerror="this.style.display='none'"/>
-          <div class="about-img-ph"><i class="fas fa-tent"></i><span>Your Photo</span></div>
-        </div>
-        <div class="about-img-cell">
-          <img src="" alt="Event tent interior" onerror="this.style.display='none'"/>
-          <div class="about-img-ph"><i class="fas fa-images"></i><span>Your Photo</span></div>
-        </div>
-        <div class="about-img-cell">
-          <img src="" alt="Tent exterior" onerror="this.style.display='none'"/>
-          <div class="about-img-ph"><i class="fas fa-images"></i><span>Your Photo</span></div>
-        </div>
+  <div class="about-wrap">
+    <div class="about-mosaic sr">
+      <div class="mos-cell span2" style="height:200px">
+        <img src="" alt="About Brandshine" onerror="this.style.display='none'"/>
+        <div class="mos-ph"><i class="fas fa-tent"></i><span>Your Best Photo</span></div>
+      </div>
+      <div class="mos-cell" style="height:160px">
+        <img src="" alt="Tent Setup" onerror="this.style.display='none'"/>
+        <div class="mos-ph"><i class="fas fa-images"></i><span>Photo</span></div>
+      </div>
+      <div class="mos-cell" style="height:160px">
+        <img src="" alt="Event Tent" onerror="this.style.display='none'"/>
+        <div class="mos-ph"><i class="fas fa-images"></i><span>Photo</span></div>
       </div>
     </div>
-    <div class="about-text fade-up">
-      <div class="section-tag">About Us</div>
-      <h2 class="section-title">We Are Brandshine Tent Makers</h2>
-      <div class="divider left"></div>
-      <p style="margin-top:18px;color:var(--text);line-height:1.75;font-size:15px">
-        Brandshine Tent Makers is a trusted provider of high quality tents for weddings, parties, corporate events, church functions, exhibitions and more. We are committed to providing durable, elegant and affordable tents that make your event perfect and memorable.
-      </p>
-      <p style="margin-top:12px;color:var(--text);line-height:1.75;font-size:15px">
-        With over 100 successful events under our belt, we understand that every occasion is unique. That's why we offer flexible sizing, custom designs and a professional setup team that delivers on time — every time.
-      </p>
-      <div class="stats-row">
-        <div class="stat-box"><div class="num">100+</div><div class="lbl">Events Done</div></div>
-        <div class="stat-box"><div class="num">100+</div><div class="lbl">Happy Clients</div></div>
-        <div class="stat-box"><div class="num">50+</div><div class="lbl">Tents Available</div></div>
-        <div class="stat-box"><div class="num">100%</div><div class="lbl">Satisfaction</div></div>
+    <div class="sr">
+      <div class="stag">About Us</div>
+      <h2 class="stitle">We Are Brandshine Tent Makers</h2>
+      <div class="divgl"></div>
+      <p style="margin-top:18px;color:var(--text);line-height:1.8;font-size:15px">Brandshine Tent Makers is a trusted provider of high quality tents for weddings, parties, corporate events, church functions, exhibitions and more across Kenya.</p>
+      <p style="margin-top:12px;color:var(--text);line-height:1.8;font-size:15px">We are committed to providing durable, elegant and affordable tents that make your event perfect and memorable — delivered and set up by our professional team, on time, every time.</p>
+      <div class="stats-boxes">
+        <div class="sbox"><div class="n">100+</div><div class="l">Events Done</div></div>
+        <div class="sbox"><div class="n">100+</div><div class="l">Happy Clients</div></div>
+        <div class="sbox"><div class="n">50+</div><div class="l">Tents Available</div></div>
+        <div class="sbox"><div class="n">100%</div><div class="l">Satisfaction</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
+<!-- ========== SERVICES ========== -->
 <section id="services">
-  <div class="section-head fade-up">
-    <div class="section-tag">What We Do</div>
-    <h2 class="section-title">Our Services</h2>
-    <div class="divider"></div>
+  <div class="shead sr">
+    <div class="stag">What We Do</div>
+    <h2 class="stitle">Our Services</h2>
+    <div class="divg"></div>
   </div>
-  <div class="services-grid">
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-ring"></i></div>
-      <h3>Wedding Tents</h3>
-      <p>Elegant, beautifully styled tents that turn your wedding into a fairy tale. Custom colors and draping available.</p>
-    </div>
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-briefcase"></i></div>
-      <h3>Corporate Events</h3>
-      <p>Professional setups for conferences, product launches, AGMs and company retreats.</p>
-    </div>
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-church"></i></div>
-      <h3>Church Functions</h3>
-      <p>Spacious tents for crusades, fundraisers and church celebrations with fast installation.</p>
-    </div>
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-birthday-cake"></i></div>
-      <h3>Parties &amp; Celebrations</h3>
-      <p>Birthdays, anniversaries, graduations — we have the right tent for your special day.</p>
-    </div>
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-store"></i></div>
-      <h3>Exhibitions &amp; Trade Shows</h3>
-      <p>Branded tent solutions for exhibitions, markets and promotional activations.</p>
-    </div>
-    <div class="svc-card fade-up">
-      <div class="svc-icon"><i class="fas fa-tools"></i></div>
-      <h3>Delivery &amp; Setup</h3>
-      <p>We handle full delivery, professional installation and takedown so you can focus on your event.</p>
-    </div>
+  <div class="svc-grid">
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-ring"></i></div><h3>Wedding Tents</h3><p>Elegant, beautifully styled tents that turn your wedding into a fairy tale. Custom colors and draping available.</p></div>
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-briefcase"></i></div><h3>Corporate Events</h3><p>Professional setups for conferences, product launches, AGMs and company retreats.</p></div>
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-church"></i></div><h3>Church Functions</h3><p>Spacious tents for crusades, fundraisers and church celebrations with fast installation.</p></div>
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-birthday-cake"></i></div><h3>Parties &amp; Celebrations</h3><p>Birthdays, anniversaries, graduations — we have the right tent for your special day.</p></div>
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-store"></i></div><h3>Exhibitions &amp; Trade Shows</h3><p>Branded tent solutions for exhibitions, markets and promotional activations.</p></div>
+    <div class="svc-card sr"><div class="svc-icon"><i class="fas fa-truck-ramp-box"></i></div><h3>Delivery &amp; Setup</h3><p>We handle full delivery, professional installation and takedown — anywhere in Kenya.</p></div>
   </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
+<!-- ========== CTA BANNER ========== -->
 <div class="cta-banner">
   <div class="cta-inner">
     <div class="cta-text">
       <h2>Need A Tent For Your Event?</h2>
-      <p>Call or WhatsApp us today and get the best quality tents at the best price. Payment after delivery available.</p>
+      <p>Call or WhatsApp us today. Best quality tents at the best price. Payment after delivery available.</p>
     </div>
     <div class="cta-btns">
       <a href="tel:0713361577" class="btn-white"><i class="fas fa-phone"></i> 0713 361 577</a>
-      <a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20tent%20hire%20from%20Brandshine%20Tent%20Makers." class="btn-wa2" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="https://wa.me/254713361577?text=Hello%2C+I+need+a+tent+from+Brandshine+Tent+Makers." class="btn-wa2" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
   </div>
 </div>
 
-<!-- ===== GALLERY ===== -->
-<section id="gallery">
-  <div class="section-head fade-up">
-    <div class="section-tag">Our Work</div>
-    <h2 class="section-title">Event Gallery</h2>
-    <div class="divider"></div>
-    <p class="section-sub" style="margin-top:14px">A glimpse of the beautiful setups we've delivered across Kenya.</p>
-  </div>
-  <div class="gallery-grid fade-up" style="max-width:1200px;margin:0 auto">
-    <div class="gallery-cell wide" style="aspect-ratio:2/1">
-      <img src="" alt="Gallery 1" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-    <div class="gallery-cell" style="aspect-ratio:1">
-      <img src="" alt="Gallery 2" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-    <div class="gallery-cell" style="aspect-ratio:1">
-      <img src="" alt="Gallery 3" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-    <div class="gallery-cell" style="aspect-ratio:1">
-      <img src="" alt="Gallery 4" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-    <div class="gallery-cell" style="aspect-ratio:1">
-      <img src="" alt="Gallery 5" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-    <div class="gallery-cell wide" style="aspect-ratio:2/1">
-      <img src="" alt="Gallery 6" onerror="this.style.display='none'"/>
-      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
+<!-- ========== TESTIMONIALS ========== -->
 <section id="testimonials">
-  <div class="section-head fade-up">
-    <div class="section-tag">Client Reviews</div>
-    <h2 class="section-title">What Our Clients Say</h2>
-    <div class="divider"></div>
+  <div class="shead sr">
+    <div class="stag">Client Reviews</div>
+    <h2 class="stitle">What Our Clients Say</h2>
+    <div class="divg"></div>
   </div>
   <div class="testi-grid">
-    <div class="testi-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p>"Brandshine delivered and set up everything perfectly for our wedding. The tent was beautiful, spacious, and exactly what we envisioned. Highly recommend!"</p>
-      <div class="testi-author">
-        <div class="author-avatar">A</div>
-        <div class="author-info"><strong>Amina Wanjiru</strong><span>Wedding Client, Nairobi</span></div>
-      </div>
-    </div>
-    <div class="testi-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p>"Professional team, excellent quality tents and very affordable. They set up on time and everything was neat. Will definitely use them again for our annual conference."</p>
-      <div class="testi-author">
-        <div class="author-avatar">J</div>
-        <div class="author-info"><strong>John Kamau</strong><span>Corporate Event, Kiambu</span></div>
-      </div>
-    </div>
-    <div class="testi-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p>"I was impressed by how quickly they responded and how smooth the whole process was. The tent looked amazing for our church fundraiser. Thank you Brandshine!"</p>
-      <div class="testi-author">
-        <div class="author-avatar">G</div>
-        <div class="author-info"><strong>Grace Njeri</strong><span>Church Function, Thika</span></div>
-      </div>
-    </div>
+    <div class="tcard sr"><div class="stars">★★★★★</div><p>"Brandshine delivered and set up everything perfectly for our wedding. The tent was beautiful and exactly what we envisioned. Highly recommend!"</p><div class="tauth"><div class="tavatar">A</div><div><strong>Amina Wanjiru</strong><span>Wedding Client, Nairobi</span></div></div></div>
+    <div class="tcard sr"><div class="stars">★★★★★</div><p>"Professional team, excellent quality and very affordable. They set up on time and everything was neat. Will use them again for our annual conference."</p><div class="tauth"><div class="tavatar">J</div><div><strong>John Kamau</strong><span>Corporate Event, Kiambu</span></div></div></div>
+    <div class="tcard sr"><div class="stars">★★★★★</div><p>"The tent looked amazing for our church fundraiser. Fast response, smooth process and on-time delivery. Thank you Brandshine!"</p><div class="tauth"><div class="tavatar">G</div><div><strong>Grace Njeri</strong><span>Church Function, Thika</span></div></div></div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
+<!-- ========== FAQ ========== -->
 <section id="faq">
-  <div class="section-head fade-up">
-    <div class="section-tag">FAQ</div>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="divider"></div>
+  <div class="shead sr">
+    <div class="stag">FAQ</div>
+    <h2 class="stitle">Frequently Asked Questions</h2>
+    <div class="divg"></div>
   </div>
-  <div class="faq-inner">
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">Do you deliver and set up the tents? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">Yes! We handle full delivery, professional installation and takedown. Our team ensures everything is set up properly before your event begins.</div>
-    </div>
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">Do you offer payment after delivery? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">Yes, we offer payment after delivery options. Contact us to discuss terms and arrangements for your specific event.</div>
-    </div>
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">How far in advance should I book? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">We recommend booking at least 2–3 weeks in advance, especially for large events and peak seasons. However, we do our best to accommodate last-minute requests.</div>
-    </div>
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">Are your tents weatherproof? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">Yes, all our tents are made from high quality, weather-resistant materials that protect against rain, wind and strong sun.</div>
-    </div>
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">Do you offer custom tent designs? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">Absolutely! We offer custom color, branding and design options to match your event theme. Contact us to discuss your specific requirements.</div>
-    </div>
-    <div class="faq-item fade-up">
-      <div class="faq-q" onclick="toggleFaq(this)">What areas do you serve? <i class="fas fa-chevron-down"></i></div>
-      <div class="faq-a">We serve clients across Kenya. Contact us with your location and we will provide delivery details and any applicable transport charges.</div>
-    </div>
+  <div class="faq-wrap">
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">Do you deliver and set up the tents?<i class="fas fa-chevron-down"></i></div><div class="fa2">Yes! We handle full delivery, professional installation and takedown. Our team ensures everything is set up properly before your event.</div></div>
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">Do you offer payment after delivery?<i class="fas fa-chevron-down"></i></div><div class="fa2">Yes, we offer payment after delivery. Contact us to discuss terms and arrangements for your specific event.</div></div>
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">How far in advance should I book?<i class="fas fa-chevron-down"></i></div><div class="fa2">We recommend booking 2–3 weeks in advance for large events. However, we do our best to accommodate last-minute requests.</div></div>
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">Are your tents weatherproof?<i class="fas fa-chevron-down"></i></div><div class="fa2">Yes, all our tents are made from high quality, weather-resistant materials that protect against rain, wind and strong sun.</div></div>
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">Do you offer custom tent designs?<i class="fas fa-chevron-down"></i></div><div class="fa2">Absolutely! We offer custom colors, branding and design options to match your event theme. Contact us to discuss requirements.</div></div>
+    <div class="fitem sr"><div class="fq" onclick="toggleFaq(this)">What areas do you serve?<i class="fas fa-chevron-down"></i></div><div class="fa2">We serve clients across Kenya. Contact us with your location for delivery details and any applicable transport charges.</div></div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- ========== CONTACT ========== -->
 <section id="contact">
-  <div class="section-head fade-up">
-    <div class="section-tag">Get In Touch</div>
-    <h2 class="section-title">Contact Us Today</h2>
-    <div class="divider"></div>
-    <p class="section-sub" style="margin-top:14px;color:rgba(255,255,255,0.5)">Ready to make your event unforgettable? Reach out and we'll get back to you fast.</p>
+  <div class="shead sr">
+    <div class="stag">Get In Touch</div>
+    <h2 class="stitle">Contact Us Today</h2>
+    <div class="divg"></div>
+    <p class="ssub" style="margin-top:14px;color:rgba(255,255,255,0.45)">Ready to make your event unforgettable? We respond fast.</p>
   </div>
-  <div class="contact-inner">
-    <div class="contact-info fade-up">
-      <div class="contact-item">
-        <div class="c-icon"><i class="fas fa-phone"></i></div>
-        <div class="c-text"><strong>Phone / WhatsApp</strong><span>0713 361 577</span></div>
-      </div>
-      <div class="contact-item">
-        <div class="c-icon"><i class="fas fa-envelope"></i></div>
-        <div class="c-text"><strong>Email</strong><span>info@brandshinetents.co.ke</span></div>
-      </div>
-      <div class="contact-item">
-        <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <div class="c-text"><strong>Location</strong><span>Kenya — Nationwide Delivery</span></div>
-      </div>
-      <div class="contact-item">
-        <div class="c-icon"><i class="fas fa-clock"></i></div>
-        <div class="c-text"><strong>Working Hours</strong><span>Mon – Sat: 8:00 AM – 6:00 PM</span></div>
-      </div>
-      <div class="social-row">
-        <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://wa.me/254713361577" class="social-btn" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+  <div class="contact-wrap">
+    <div class="cinfo sr">
+      <div class="citem"><div class="cico"><i class="fas fa-phone"></i></div><div class="ctxt"><strong>Phone / WhatsApp</strong><span>0713 361 577</span></div></div>
+      <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div class="ctxt"><strong>Email</strong><span>info@brandshinetents.co.ke</span></div></div>
+      <div class="citem"><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div class="ctxt"><strong>Location</strong><span>Kenya — Nationwide Delivery</span></div></div>
+      <div class="citem"><div class="cico"><i class="fas fa-clock"></i></div><div class="ctxt"><strong>Working Hours</strong><span>Mon – Sat: 8:00 AM – 6:00 PM</span></div></div>
+      <div class="soc-row">
+        <a href="#" class="soc-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/254713361577" class="soc-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="soc-btn"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="contact-form fade-up">
-      <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="e.g. John Kamau"/></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="e.g. 0712 345 678"/></div>
+    <div class="cform sr">
+      <div class="crow">
+        <div class="cgroup"><label>Your Name</label><input type="text" id="f-name" placeholder="e.g. John Kamau"/></div>
+        <div class="cgroup"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="0712 345 678"/></div>
       </div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
-      <div class="form-group">
-        <label>Type of Event</label>
-        <select>
+      <div class="cgroup"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"/></div>
+      <div class="cgroup"><label>Type of Event</label>
+        <select id="f-event">
           <option value="">Select event type...</option>
-          <option>Wedding</option>
-          <option>Corporate Event</option>
-          <option>Church Function</option>
-          <option>Birthday / Party</option>
-          <option>Exhibition / Trade Show</option>
-          <option>Other</option>
+          <option>Wedding</option><option>Corporate Event</option><option>Church Function</option>
+          <option>Birthday / Party</option><option>Exhibition / Trade Show</option><option>Other</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Tent Size Needed</label>
-        <select>
+      <div class="cgroup"><label>Tent Size Needed</label>
+        <select id="f-size">
           <option value="">Select capacity...</option>
-          <option>50 Seater</option>
-          <option>100 Seater</option>
-          <option>150 Seater</option>
-          <option>200 Seater</option>
-          <option>250 Seater</option>
-          <option>300 Seater</option>
-          <option>Gazebo</option>
-          <option>Not Sure – Need Advice</option>
+          <option>50 Seater</option><option>100 Seater</option><option>150 Seater</option>
+          <option>200 Seater</option><option>250 Seater</option><option>300 Seater</option>
+          <option>Gazebo</option><option>Not Sure – Need Advice</option>
         </select>
       </div>
-      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your event — date, location, any special requirements..."></textarea></div>
-      <button class="btn-submit" onclick="handleSubmit()"><i class="fas fa-paper-plane"></i> Send Enquiry via WhatsApp</button>
+      <div class="cgroup"><label>Message</label><textarea id="f-msg" placeholder="Event date, location, any special requirements..."></textarea></div>
+      <button class="btn-send" onclick="sendWA()"><i class="fab fa-whatsapp"></i> Send Enquiry via WhatsApp</button>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ========== FOOTER ========== -->
 <footer>
   <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo">
-        <div class="logo-icon"><i class="fas fa-tent"></i></div>
-        <div class="logo-text">
-          <span>Premium Event Solutions</span>
-          <strong>Brandshine Tent Makers</strong>
+    <div class="fbrand">
+      <div class="logo" style="margin-bottom:0">
+        <div class="logo-svg-wrap">
+          <svg viewBox="0 0 100 100" fill="none"><defs><linearGradient id="fg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9a7000"/><stop offset="100%" stop-color="#F0C040"/></linearGradient></defs><path d="M50 10 L86 70 L14 70 Z" fill="url(#fg1)" opacity="0.95"/><path d="M50 10 L68 70 L32 70 Z" fill="#F0C040" opacity="0.4"/><rect x="12" y="70" width="76" height="5" rx="2.5" fill="url(#fg1)"/><circle cx="50" cy="10" r="3.5" fill="#F0C040"/></svg>
         </div>
+        <div class="logo-wordmark"><span>Premium Event Solutions</span><strong>Brandshine Tent Makers</strong></div>
       </div>
       <p>We provide high quality tents for all events across Kenya. Quality, durability and customer satisfaction are our top priorities.</p>
-      <div class="social-row">
-        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://wa.me/254713361577" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+      <div class="soc-row">
+        <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/254713361577" class="soc-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-    <div class="footer-col">
+    <div class="fcol">
       <h4>Quick Links</h4>
-      <a href="#hero">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#tents">Our Tents</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact Us</a>
+      <a href="#hero">Home</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a>
+      <a href="#about">About Us</a><a href="#services">Services</a><a href="#contact">Contact</a>
     </div>
-    <div class="footer-col">
+    <div class="fcol">
       <h4>Our Tents</h4>
-      <a href="#tents">Pagoda Tents</a>
-      <a href="#tents">Pole Tents</a>
-      <a href="#tents">Marquee Tents</a>
-      <a href="#tents">Canopy Tents</a>
-      <a href="#tents">Gazebo Tents</a>
-      <a href="#tents">Custom Tents</a>
+      <a href="#gallery">Pagoda Tents</a><a href="#gallery">Pole Tents</a><a href="#gallery">Marquee Tents</a>
+      <a href="#gallery">Canopy Tents</a><a href="#gallery">Gazebo Tents</a><a href="#gallery">Custom Tents</a>
     </div>
-    <div class="footer-col">
+    <div class="fcol">
       <h4>Contact Us</h4>
       <a href="tel:0713361577"><i class="fas fa-phone" style="margin-right:6px;color:var(--gold)"></i>0713 361 577</a>
-      <a href="#"><i class="fas fa-map-marker-alt" style="margin-right:6px;color:var(--gold)"></i>Kenya — Nationwide</a>
-      <a href="#"><i class="fas fa-clock" style="margin-right:6px;color:var(--gold)"></i>Mon–Sat: 8AM–6PM</a>
+      <a href="#"><i class="fas fa-map-marker-alt" style="margin-right:6px;color:var(--gold)"></i>Kenya – Nationwide</a>
+      <a href="#"><i class="fas fa-clock" style="margin-right:6px;color:var(--gold)"></i>Mon–Sat 8AM–6PM</a>
       <a href="mailto:info@brandshinetents.co.ke"><i class="fas fa-envelope" style="margin-right:6px;color:var(--gold)"></i>Email Us</a>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bot">
     <span>© 2025 Brandshine Tent Makers. All Rights Reserved.</span>
-    <span>Designed with ❤️ for Kenyan Events</span>
+    <span>Designed for Kenyan Events 🇰🇪</span>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20tent%20hire%20from%20Brandshine%20Tent%20Makers." class="wa-float" target="_blank" title="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/254713361577?text=Hello%2C+I'm+interested+in+tent+hire+from+Brandshine+Tent+Makers." class="wa-fab" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-// ===== NAVBAR SCROLL =====
+// ---- INTRO ----
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('intro-screen').style.display='none';
+    document.body.style.overflow='auto';
+  },3800);
+});
+document.body.style.overflow='hidden';
+
+// ---- NAVBAR ----
 window.addEventListener('scroll',()=>{
-  const nav=document.getElementById('navbar');
-  nav.style.background=window.scrollY>60?'rgba(13,13,26,0.98)':'rgba(13,13,26,0.95)';
+  document.getElementById('navbar').style.boxShadow=
+    window.scrollY>60?'0 4px 24px rgba(0,0,0,0.3)':'none';
 });
 
-// ===== MOBILE MENU =====
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-function closeMenu(){
-  document.getElementById('mobileMenu').classList.remove('open');
-}
+// ---- MOBILE MENU ----
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
 
-// ===== FAQ =====
+// ---- FAQ ----
 function toggleFaq(el){
   const item=el.parentElement;
-  document.querySelectorAll('.faq-item').forEach(i=>{
-    if(i!==item)i.classList.remove('open');
-  });
+  document.querySelectorAll('.fitem').forEach(i=>{if(i!==item)i.classList.remove('open')});
   item.classList.toggle('open');
 }
 
-// ===== SCROLL ANIMATIONS =====
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)e.target.classList.add('visible');
-  });
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
-
-// ===== CONTACT FORM → WHATSAPP =====
-function handleSubmit(){
-  const inputs=document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
-  const name=inputs[0].value||'Not provided';
-  const phone=inputs[1].value||'Not provided';
-  const email=inputs[2].value||'Not provided';
-  const event=inputs[3].value||'Not specified';
-  const size=inputs[4].value||'Not specified';
-  const msg=inputs[5].value||'No message';
-  const text=`Hello Brandshine Tent Makers!%0A%0A*New Enquiry*%0A%0A👤 *Name:* ${encodeURIComponent(name)}%0A📞 *Phone:* ${encodeURIComponent(phone)}%0A📧 *Email:* ${encodeURIComponent(email)}%0A🎉 *Event Type:* ${encodeURIComponent(event)}%0A⛺ *Tent Size:* ${encodeURIComponent(size)}%0A💬 *Message:* ${encodeURIComponent(msg)}`;
-  window.open(`https://wa.me/254713361577?text=${text}`,'_blank');
-}
-
-// ===== SMOOTH SCROLL FOR NAV LINKS =====
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+// ---- GALLERY FILTER ----
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    document.querySelectorAll('.g-item').forEach(item=>{
+      if(filter==='all'||item.dataset.cat===filter){
+        item.style.display='';
+        item.style.animation='none';
+        setTimeout(()=>item.style.animation='',10);
+      } else {
+        item.style.display='none';
+      }
+    });
   });
 });
 
-// ===== HERO IMAGE PLACEHOLDER HIDE =====
-document.querySelectorAll('.tent-img img, .about-img-cell img, .gallery-cell img').forEach(img=>{
-  if(!img.src||img.src===window.location.href){
-    img.style.display='none';
+// ---- LIGHTBOX ----
+function openLB(el){
+  const img=el.querySelector('img');
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lb-img');
+  const src=img?img.src:'';
+  if(src&&src!==window.location.href&&!src.endsWith('/')){
+    lbImg.src=src;lbImg.style.display='block';
+  } else {
+    lbImg.style.display='none';
   }
+  document.getElementById('lb-name').textContent=el.dataset.name||'';
+  document.getElementById('lb-price').textContent=el.dataset.price||'';
+  const wa=`https://wa.me/254713361577?text=Hello!+I'm+interested+in+the+${encodeURIComponent(el.dataset.name||'tent')}+at+${encodeURIComponent(el.dataset.price||'')}`;
+  document.getElementById('lb-wa').href=wa;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('lightbox').addEventListener('click',function(e){
+  if(e.target===this)closeLB();
+});
+
+// ---- CONTACT → WHATSAPP ----
+function sendWA(){
+  const name=document.getElementById('f-name').value||'Not provided';
+  const phone=document.getElementById('f-phone').value||'Not provided';
+  const email=document.getElementById('f-email').value||'Not provided';
+  const event=document.getElementById('f-event').value||'Not specified';
+  const size=document.getElementById('f-size').value||'Not specified';
+  const msg=document.getElementById('f-msg').value||'No message';
+  const txt=`Hello Brandshine Tent Makers!%0A%0A*New Enquiry*%0A%0A%F0%9F%91%A4 *Name:* ${encodeURIComponent(name)}%0A%F0%9F%93%9E *Phone:* ${encodeURIComponent(phone)}%0A%F0%9F%93%A7 *Email:* ${encodeURIComponent(email)}%0A%F0%9F%8E%89 *Event:* ${encodeURIComponent(event)}%0A%E2%9B%BA *Size:* ${encodeURIComponent(size)}%0A%F0%9F%92%AC *Message:* ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/254713361577?text=${txt}`,'_blank');
+}
+
+// ---- SCROLL REVEAL ----
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+
+// ---- SMOOTH SCROLL ----
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
 });
 </script>
 </body>
