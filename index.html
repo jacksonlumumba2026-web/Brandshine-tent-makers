@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Brandshine Tent Makers – Premium quality tents for weddings, corporate events, parties & more. Affordable prices, fast delivery across Kenya."/>
+<title>Brandshine Tent Makers | Premium Event Tents Kenya</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== VARIABLES ===== */
+:root{
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --dark:#0d0d1a;
+  --dark2:#1a1a2e;
+  --green:#1a7a3c;
+  --green-light:#22a050;
+  --white:#fff;
+  --gray:#f5f5f7;
+  --text:#3a3a4a;
+  --radius:12px;
+  --shadow:0 8px 32px rgba(0,0,0,0.12);
+  --transition:all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(13,13,26,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,160,23,0.2);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+  transition:var(--transition);
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--dark);
+}
+.logo-text{line-height:1.1}
+.logo-text span{display:block;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600}
+.logo-text strong{font-size:18px;font-weight:900;color:var(--white);letter-spacing:0.5px}
+
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;transition:var(--transition);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--dark)!important;
+  padding:10px 22px;border-radius:50px;
+  font-weight:700;font-size:14px;
+  display:flex;align-items:center;gap:8px;
+  transition:var(--transition);
+  box-shadow:0 4px 16px rgba(212,160,23,0.35);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,160,23,0.5)}
+.nav-cta::after{display:none!important}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition)}
+
+/* Mobile menu */
+.mobile-menu{
+  display:none;position:fixed;top:72px;left:0;width:100%;
+  background:rgba(13,13,26,0.98);backdrop-filter:blur(12px);
+  padding:24px 5%;flex-direction:column;gap:8px;z-index:999;
+  border-bottom:1px solid rgba(212,160,23,0.2);
+}
+.mobile-menu a{
+  color:rgba(255,255,255,0.85);padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  font-size:15px;font-weight:500;transition:var(--transition);
+}
+.mobile-menu a:hover{color:var(--gold);padding-left:8px}
+.mobile-menu.open{display:flex}
+
+/* ===== HERO ===== */
+#hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,#0d0d1a 0%,#1a1a2e 50%,#0f2a1a 100%);
+  display:flex;align-items:center;
+  padding:100px 5% 60px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%,rgba(212,160,23,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 30%,rgba(26,122,60,0.12) 0%,transparent 70%);
+}
+/* Animated particles */
+.particle{
+  position:absolute;border-radius:50%;
+  background:rgba(212,160,23,0.15);
+  animation:float linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:0.5}
+  100%{transform:translateY(-100vh) rotate(720deg);opacity:0}
+}
+.hero-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  max-width:1200px;margin:0 auto;width:100%;
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,160,23,0.12);
+  border:1px solid rgba(212,160,23,0.3);
+  color:var(--gold-light);
+  padding:6px 16px;border-radius:50px;
+  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-title{
+  font-size:clamp(36px,5vw,64px);
+  font-weight:900;line-height:1.1;
+  color:var(--white);margin-bottom:20px;
+}
+.hero-title span{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:17px;color:rgba(255,255,255,0.65);
+  line-height:1.7;margin-bottom:36px;max-width:480px;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--dark);padding:14px 28px;border-radius:50px;
+  font-weight:700;font-size:15px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 6px 24px rgba(212,160,23,0.4);
+  transition:var(--transition);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,160,23,0.55)}
+.btn-wa{
+  background:rgba(37,211,102,0.12);
+  border:1.5px solid rgba(37,211,102,0.4);
+  color:#25d366;padding:14px 28px;border-radius:50px;
+  font-weight:700;font-size:15px;
+  display:flex;align-items:center;gap:10px;
+  transition:var(--transition);
+}
+.btn-wa:hover{background:rgba(37,211,102,0.2);transform:translateY(-3px)}
+
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{
+  font-size:28px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px}
+.stat-divider{width:1px;background:rgba(255,255,255,0.1);align-self:stretch}
+
+/* Hero visual */
+.hero-visual{position:relative}
+.hero-img-wrap{
+  border-radius:24px;overflow:hidden;
+  border:2px solid rgba(212,160,23,0.25);
+  box-shadow:0 24px 80px rgba(0,0,0,0.5);
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,#1a2a1a,#0d1a0d);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.hero-img-placeholder{
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  color:rgba(255,255,255,0.3);
+}
+.hero-img-placeholder i{font-size:48px;color:rgba(212,160,23,0.3)}
+.hero-img-placeholder span{font-size:13px;letter-spacing:1px}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-img-wrap img[src=""]{display:none}
+
+.badge-float{
+  position:absolute;
+  background:rgba(13,13,26,0.9);backdrop-filter:blur(8px);
+  border:1px solid rgba(212,160,23,0.3);
+  border-radius:12px;padding:10px 16px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+.badge-float.bl{bottom:-16px;left:-20px}
+.badge-float.tr{top:-16px;right:-20px}
+.badge-float i{color:var(--gold);font-size:18px}
+.badge-float strong{color:var(--white);font-size:14px;font-weight:700}
+.badge-float span{color:rgba(255,255,255,0.5);font-size:11px}
+
+/* ===== FEATURES STRIP ===== */
+.features-strip{
+  background:var(--dark);
+  padding:28px 5%;
+  border-top:1px solid rgba(212,160,23,0.15);
+  border-bottom:1px solid rgba(212,160,23,0.15);
+}
+.features-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.feature-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px;border-radius:12px;
+  transition:var(--transition);
+}
+.feature-item:hover{background:rgba(212,160,23,0.06)}
+.feature-icon{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(212,160,23,0.15),rgba(212,160,23,0.05));
+  border:1px solid rgba(212,160,23,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--gold);
+}
+.feature-text strong{color:var(--white);font-size:14px;font-weight:700;display:block}
+.feature-text span{color:rgba(255,255,255,0.45);font-size:12px}
+
+/* ===== SECTION COMMON ===== */
+section{padding:80px 5%}
+.section-tag{
+  display:inline-block;
+  font-size:11px;letter-spacing:3px;font-weight:700;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px;
+}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--dark2);line-height:1.2;margin-bottom:12px}
+.section-sub{font-size:16px;color:var(--text);max-width:560px;line-height:1.6}
+.section-head{text-align:center;margin-bottom:52px}
+.section-head .section-sub{margin:0 auto}
+.divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:14px auto 0}
+.divider.left{margin:14px 0 0}
+
+/* ===== TENTS ===== */
+#tents{background:var(--gray)}
+.tents-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;
+}
+.tent-card{
+  background:var(--white);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+  transition:var(--transition);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.tent-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,0.15)}
+.tent-img{
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.tent-img-ph{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(26,122,60,0.4);
+}
+.tent-img-ph i{font-size:36px}
+.tent-img-ph span{font-size:11px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
+.tent-img img{width:100%;height:100%;object-fit:cover}
+.tent-body{padding:18px}
+.tent-name{font-size:16px;font-weight:800;color:var(--dark2);margin-bottom:4px}
+.tent-desc{font-size:13px;color:var(--text);line-height:1.5}
+.tent-tag{
+  display:inline-block;margin-top:10px;
+  background:rgba(212,160,23,0.1);color:#9a7000;
+  font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;
+}
+
+/* ===== PRICING ===== */
+#pricing{background:var(--dark2)}
+#pricing .section-title{color:var(--white)}
+#pricing .section-sub{color:rgba(255,255,255,0.55)}
+#pricing .section-tag{color:var(--gold)}
+.pricing-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;
+}
+.pricing-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(212,160,23,0.15);
+  border-radius:20px;padding:36px;
+  transition:var(--transition);
+}
+.pricing-card:hover{border-color:rgba(212,160,23,0.4);background:rgba(212,160,23,0.04)}
+.pricing-card h3{
+  font-size:20px;font-weight:800;color:var(--white);
+  margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;
+}
+.pricing-card h3 i{color:var(--gold);font-size:18px}
+.pricing-card p{color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:24px}
+.price-list{display:flex;flex-direction:column;gap:8px}
+.price-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;border-radius:8px;
+  background:rgba(255,255,255,0.04);
+  transition:var(--transition);
+}
+.price-row:hover{background:rgba(212,160,23,0.08)}
+.price-row span{font-size:14px;color:rgba(255,255,255,0.8)}
+.price-row strong{
+  font-size:15px;font-weight:800;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.price-note{
+  margin-top:24px;padding:14px;
+  background:rgba(37,211,102,0.08);
+  border:1px solid rgba(37,211,102,0.15);
+  border-radius:10px;
+  color:rgba(255,255,255,0.7);font-size:13px;line-height:1.5;
+}
+.price-note i{color:#25d366;margin-right:6px}
+
+/* ===== ABOUT ===== */
+#about{background:var(--white)}
+.about-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+}
+.about-img-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.about-img-cell{
+  border-radius:14px;overflow:hidden;
+  aspect-ratio:1;
+  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  display:flex;align-items:center;justify-content:center;
+}
+.about-img-cell.tall{grid-row:span 2;aspect-ratio:auto}
+.about-img-ph{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(26,122,60,0.35);
+}
+.about-img-ph i{font-size:28px}
+.about-img-ph span{font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
+.about-img-cell img{width:100%;height:100%;object-fit:cover}
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-top:36px;
+}
+.stat-box{
+  text-align:center;padding:18px 8px;
+  background:var(--gray);border-radius:12px;
+  transition:var(--transition);
+}
+.stat-box:hover{background:linear-gradient(135deg,rgba(212,160,23,0.1),rgba(212,160,23,0.05));transform:translateY(-4px)}
+.stat-box .num{
+  font-size:26px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),#9a7000);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-box .lbl{font-size:11px;color:var(--text);margin-top:3px;font-weight:600}
+
+/* ===== SERVICES ===== */
+#services{background:var(--gray)}
+.services-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;
+}
+.svc-card{
+  background:var(--white);border-radius:16px;
+  padding:28px;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;
+  transition:var(--transition);
+}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+.svc-icon{
+  width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(212,160,23,0.12),rgba(212,160,23,0.04));
+  border:1px solid rgba(212,160,23,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:var(--gold);margin-bottom:18px;
+}
+.svc-card h3{font-size:17px;font-weight:800;color:var(--dark2);margin-bottom:8px}
+.svc-card p{font-size:14px;color:var(--text);line-height:1.6}
+
+/* ===== CTA BANNER ===== */
+.cta-banner{
+  background:linear-gradient(135deg,var(--green) 0%,#0f4d25 100%);
+  padding:56px 5%;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;
+  top:-50%;right:-10%;width:400px;height:400px;
+  background:rgba(212,160,23,0.08);border-radius:50%;
+}
+.cta-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:32px;flex-wrap:wrap;position:relative;z-index:1;
+}
+.cta-text h2{font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--white);margin-bottom:8px}
+.cta-text p{color:rgba(255,255,255,0.7);font-size:15px}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-white{
+  background:var(--white);
+  color:var(--green);padding:13px 26px;border-radius:50px;
+  font-weight:700;font-size:14px;
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  transition:var(--transition);
+}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.25)}
+.btn-wa2{
+  background:rgba(37,211,102,0.15);
+  border:1.5px solid rgba(37,211,102,0.5);
+  color:#25d366;padding:13px 26px;border-radius:50px;
+  font-weight:700;font-size:14px;
+  display:flex;align-items:center;gap:8px;
+  transition:var(--transition);
+}
+.btn-wa2:hover{background:rgba(37,211,102,0.28);transform:translateY(-3px)}
+
+/* ===== GALLERY ===== */
+#gallery{background:var(--white)}
+.gallery-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:14px;
+}
+.gallery-cell{
+  border-radius:12px;overflow:hidden;
+  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  cursor:pointer;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.gallery-cell.wide{grid-column:span 2}
+.gallery-cell.tall{grid-row:span 2}
+.gallery-cell::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,160,23,0),rgba(212,160,23,0.35));
+  opacity:0;transition:var(--transition);
+}
+.gallery-cell:hover::after{opacity:1}
+.gallery-ph{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(26,122,60,0.35);
+  z-index:1;padding:32px 12px;text-align:center;
+}
+.gallery-ph i{font-size:32px}
+.gallery-ph span{font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase}
+.gallery-cell img{width:100%;height:100%;object-fit:cover}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials{background:var(--gray)}
+.testi-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
+}
+.testi-card{
+  background:var(--white);border-radius:16px;
+  padding:28px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 4px 16px rgba(0,0,0,0.06);
+  transition:var(--transition);
+}
+.testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
+.stars{color:var(--gold);font-size:14px;margin-bottom:12px;letter-spacing:2px}
+.testi-card p{font-size:14px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.author-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:var(--dark);
+}
+.author-info strong{font-size:14px;color:var(--dark2);font-weight:700}
+.author-info span{font-size:12px;color:var(--text)}
+
+/* ===== FAQ ===== */
+#faq{background:var(--white)}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-item{
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:12px;margin-bottom:12px;
+  overflow:hidden;transition:var(--transition);
+}
+.faq-item.open{border-color:rgba(212,160,23,0.3)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 20px;cursor:pointer;
+  font-weight:700;font-size:15px;color:var(--dark2);
+  user-select:none;
+}
+.faq-q i{font-size:14px;color:var(--gold);transition:var(--transition);flex-shrink:0;margin-left:12px}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height 0.35s ease;
+  padding:0 20px;font-size:14px;color:var(--text);line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:18px}
+
+/* ===== CONTACT ===== */
+#contact{background:var(--dark2)}
+#contact .section-title{color:var(--white)}
+#contact .section-tag{color:var(--gold)}
+.contact-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:52px;
+}
+.contact-info{padding-top:12px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;
+}
+.c-icon{
+  width:46px;height:46px;border-radius:10px;flex-shrink:0;
+  background:rgba(212,160,23,0.1);
+  border:1px solid rgba(212,160,23,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--gold);
+}
+.c-text strong{color:var(--white);font-size:14px;font-weight:700;display:block;margin-bottom:3px}
+.c-text span{color:rgba(255,255,255,0.55);font-size:14px}
+.social-row{display:flex;gap:12px;margin-top:8px}
+.social-btn{
+  width:40px;height:40px;border-radius:10px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:rgba(255,255,255,0.6);
+  transition:var(--transition);
+}
+.social-btn:hover{background:rgba(212,160,23,0.15);color:var(--gold);border-color:rgba(212,160,23,0.3);transform:translateY(-3px)}
+.contact-form{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;padding:36px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{margin-bottom:14px}
+.form-group label{font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.5px;display:block;margin-bottom:6px}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:12px 14px;
+  color:var(--white);font-size:14px;font-family:inherit;
+  outline:none;transition:var(--transition);
+  -webkit-appearance:none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:rgba(212,160,23,0.5);
+  background:rgba(212,160,23,0.06);
+}
+.form-group select option{background:#1a1a2e;color:var(--white)}
+.form-group textarea{resize:vertical;min-height:90px}
+.btn-submit{
+  width:100%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--dark);padding:14px;border-radius:50px;
+  font-weight:800;font-size:15px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:var(--transition);
+  box-shadow:0 6px 20px rgba(212,160,23,0.35);
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,160,23,0.5)}
+
+/* ===== FOOTER ===== */
+footer{background:#080812;padding:52px 5% 24px;border-top:1px solid rgba(212,160,23,0.1)}
+.footer-top{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  margin-bottom:24px;
+}
+.footer-brand p{color:rgba(255,255,255,0.4);font-size:13px;line-height:1.7;margin:12px 0 20px}
+.footer-col h4{font-size:13px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:10px;transition:var(--transition)}
+.footer-col a:hover{color:var(--gold);padding-left:4px}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  font-size:12px;color:rgba(255,255,255,0.25);
+}
+.footer-bottom a{color:rgba(255,255,255,0.25);transition:var(--transition)}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* Floating WhatsApp */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:998;
+  width:56px;height:56px;border-radius:50%;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;color:var(--white);
+  box-shadow:0 6px 24px rgba(37,211,102,0.45);
+  transition:var(--transition);
+  animation:pulse-wa 2.5s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,0.6)}
+@keyframes pulse-wa{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.45)}
+  50%{box-shadow:0 6px 36px rgba(37,211,102,0.7),0 0 0 10px rgba(37,211,102,0.08)}
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:0.1s}
+.fade-up:nth-child(3){transition-delay:0.2s}
+.fade-up:nth-child(4){transition-delay:0.3s}
+.fade-up:nth-child(5){transition-delay:0.4s}
+.fade-up:nth-child(6){transition-delay:0.5s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .hero-visual{display:none}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-img-grid{display:none}
+  .pricing-grid{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-cell.wide{grid-column:span 1}
+  .gallery-cell.tall{grid-row:span 1}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .features-grid{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column;text-align:center}
+  .cta-btns{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-tent"></i></div>
+    <div class="logo-text">
+      <span>Premium Event Solutions</span>
+      <strong>Brandshine Tent Makers</strong>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#tents">Tents</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:0713361577" class="nav-cta"><i class="fas fa-phone"></i> 0713 361 577</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#tents" onclick="closeMenu()">Our Tents</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#about" onclick="closeMenu()">About Us</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:0713361577" style="color:var(--gold);font-weight:700"><i class="fas fa-phone" style="margin-right:8px"></i>0713 361 577</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <!-- Particles -->
+  <div class="particle" style="width:6px;height:6px;left:15%;animation-duration:12s;animation-delay:0s"></div>
+  <div class="particle" style="width:4px;height:4px;left:35%;animation-duration:18s;animation-delay:3s"></div>
+  <div class="particle" style="width:8px;height:8px;left:55%;animation-duration:15s;animation-delay:1s"></div>
+  <div class="particle" style="width:5px;height:5px;left:75%;animation-duration:20s;animation-delay:6s"></div>
+  <div class="particle" style="width:3px;height:3px;left:90%;animation-duration:14s;animation-delay:2s"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-star"></i> Kenya's Trusted Tent Makers</div>
+      <h1 class="hero-title">We Make Your<br>Events <span>Perfect &amp;<br>Memorable</span></h1>
+      <p class="hero-sub">Premium quality tents for weddings, corporate events, parties, church functions &amp; more. Strong, elegant and affordable solutions across Kenya.</p>
+      <div class="hero-btns">
+        <a href="tel:0713361577" class="btn-primary"><i class="fas fa-phone"></i> Call Now: 0713 361 577</a>
+        <a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20renting%20a%20tent%20from%20Brandshine%20Tent%20Makers." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Events Done</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Tents Available</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap" id="heroImgWrap">
+        <!-- Replace src with your hero image path -->
+        <img src="" alt="Brandshine Premium Tent Setup" id="heroImg" onerror="this.style.display='none'"/>
+        <div class="hero-img-placeholder" id="heroPlaceholder">
+          <i class="fas fa-tent"></i>
+          <span>Your Hero Photo Here</span>
+        </div>
+      </div>
+      <div class="badge-float bl">
+        <i class="fas fa-shield-check"></i>
+        <div><strong>Premium Quality</strong><br><span>Weather Resistant</span></div>
+      </div>
+      <div class="badge-float tr">
+        <i class="fas fa-truck"></i>
+        <div><strong>Fast Delivery</strong><br><span>Setup Included</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES STRIP ===== -->
+<div class="features-strip">
+  <div class="features-grid">
+    <div class="feature-item fade-up">
+      <div class="feature-icon"><i class="fas fa-medal"></i></div>
+      <div class="feature-text"><strong>High Quality Materials</strong><span>Strong, durable &amp; weather resistant</span></div>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon"><i class="fas fa-users"></i></div>
+      <div class="feature-text"><strong>Professional Team</strong><span>Experienced, committed to excellence</span></div>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon"><i class="fas fa-tag"></i></div>
+      <div class="feature-text"><strong>Affordable Prices</strong><span>Best quality at competitive rates</span></div>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon"><i class="fas fa-clock"></i></div>
+      <div class="feature-text"><strong>Timely Delivery</strong><span>We deliver &amp; set up on time, every time</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TENTS ===== -->
+<section id="tents">
+  <div class="section-head fade-up">
+    <div class="section-tag">Our Tents</div>
+    <h2 class="section-title">Our Quality Tent Collection</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-top:14px">From intimate gatherings to grand events — we have the perfect tent for every occasion.</p>
+  </div>
+  <div class="tents-grid">
+    <!-- Tent cards — swap img src with real photos -->
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Pagoda Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Pagoda Tents</div>
+        <div class="tent-desc">Elegant &amp; stylish tents perfect for weddings and upscale events.</div>
+        <span class="tent-tag">Most Popular</span>
+      </div>
+    </div>
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Pole Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Pole Tents</div>
+        <div class="tent-desc">Spacious and strong tents ideal for large gatherings and festivals.</div>
+        <span class="tent-tag">Large Events</span>
+      </div>
+    </div>
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Marquee Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Marquee Tents</div>
+        <div class="tent-desc">Ideal for weddings, parties and corporate events with elegant styling.</div>
+        <span class="tent-tag">Best for Weddings</span>
+      </div>
+    </div>
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Canopy Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Canopy Tents</div>
+        <div class="tent-desc">Simple, practical and versatile — perfect for any outdoor event.</div>
+        <span class="tent-tag">Versatile</span>
+      </div>
+    </div>
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Gazebo Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-tent"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Gazebo Tents</div>
+        <div class="tent-desc">Compact and charming — great for garden parties and small celebrations.</div>
+        <span class="tent-tag">Compact</span>
+      </div>
+    </div>
+    <div class="tent-card fade-up">
+      <div class="tent-img">
+        <img src="" alt="Custom Tent" onerror="this.style.display='none'"/>
+        <div class="tent-img-ph"><i class="fas fa-paint-brush"></i><span>Photo Coming</span></div>
+      </div>
+      <div class="tent-body">
+        <div class="tent-name">Custom Tents</div>
+        <div class="tent-desc">Customized designs built to match your exact vision and branding needs.</div>
+        <span class="tent-tag">Custom Order</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+  <div class="section-head fade-up">
+    <div class="section-tag">Transparent Pricing</div>
+    <h2 class="section-title">Tent &amp; Chair Prices</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-top:14px;color:rgba(255,255,255,0.5)">Pay after delivery. Special monthly offers available. Contact us for a custom quote.</p>
+  </div>
+  <div class="pricing-grid">
+    <!-- Tents -->
+    <div class="pricing-card fade-up">
+      <h3><i class="fas fa-tent"></i> Tent Sizes &amp; Prices</h3>
+      <p>All sizes available. Setup &amp; delivery included.</p>
+      <div class="price-list">
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>300 Seater Tent</span><strong>KES 260,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>250 Seater Tent</span><strong>KES 220,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>200 Seater Tent</span><strong>KES 175,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>150 Seater Tent</span><strong>KES 140,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>100 Seater Tent</span><strong>KES 88,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-users" style="margin-right:8px;color:var(--gold);opacity:.6"></i>50 Seater Tent</span><strong>KES 52,000</strong></div>
+        <div class="price-row"><span><i class="fas fa-archway" style="margin-right:8px;color:var(--gold);opacity:.6"></i>Gazebo Tent</span><strong>KES 32,000</strong></div>
+      </div>
+      <div class="price-note"><i class="fab fa-whatsapp"></i> Buy 100 seater + chairs? <strong>Get 3 chairs FREE!</strong> Payment after delivery available.</div>
+    </div>
+    <!-- Chairs -->
+    <div class="pricing-card fade-up">
+      <h3><i class="fas fa-chair"></i> Plastic Chairs (Per Chair)</h3>
+      <p>Multiple trusted brands available at competitive prices.</p>
+      <div class="price-list">
+        <div class="price-row"><span>Kenpoly Chair</span><strong>KES 730</strong></div>
+        <div class="price-row"><span>Adix Chair</span><strong>KES 850</strong></div>
+        <div class="price-row"><span>N.P.L Chair</span><strong>KES 720</strong></div>
+        <div class="price-row"><span>Sosana Chair</span><strong>KES 700</strong></div>
+        <div class="price-row"><span>Anytime Chair</span><strong>KES 700</strong></div>
+        <div class="price-row"><span>Acme Chair</span><strong>KES 850</strong></div>
+        <div class="price-row"><span>Kenpoly 2006 Chair</span><strong>KES 1,050</strong></div>
+      </div>
+      <div class="price-note"><i class="fas fa-info-circle" style="color:var(--gold)"></i> Prices may vary. Contact us for bulk order discounts and current offers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-imgs fade-up">
+      <div class="about-img-grid">
+        <div class="about-img-cell tall">
+          <img src="" alt="Brandshine tent setup" onerror="this.style.display='none'"/>
+          <div class="about-img-ph"><i class="fas fa-tent"></i><span>Your Photo</span></div>
+        </div>
+        <div class="about-img-cell">
+          <img src="" alt="Event tent interior" onerror="this.style.display='none'"/>
+          <div class="about-img-ph"><i class="fas fa-images"></i><span>Your Photo</span></div>
+        </div>
+        <div class="about-img-cell">
+          <img src="" alt="Tent exterior" onerror="this.style.display='none'"/>
+          <div class="about-img-ph"><i class="fas fa-images"></i><span>Your Photo</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text fade-up">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-title">We Are Brandshine Tent Makers</h2>
+      <div class="divider left"></div>
+      <p style="margin-top:18px;color:var(--text);line-height:1.75;font-size:15px">
+        Brandshine Tent Makers is a trusted provider of high quality tents for weddings, parties, corporate events, church functions, exhibitions and more. We are committed to providing durable, elegant and affordable tents that make your event perfect and memorable.
+      </p>
+      <p style="margin-top:12px;color:var(--text);line-height:1.75;font-size:15px">
+        With over 100 successful events under our belt, we understand that every occasion is unique. That's why we offer flexible sizing, custom designs and a professional setup team that delivers on time — every time.
+      </p>
+      <div class="stats-row">
+        <div class="stat-box"><div class="num">100+</div><div class="lbl">Events Done</div></div>
+        <div class="stat-box"><div class="num">100+</div><div class="lbl">Happy Clients</div></div>
+        <div class="stat-box"><div class="num">50+</div><div class="lbl">Tents Available</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">Satisfaction</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="section-head fade-up">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-ring"></i></div>
+      <h3>Wedding Tents</h3>
+      <p>Elegant, beautifully styled tents that turn your wedding into a fairy tale. Custom colors and draping available.</p>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-briefcase"></i></div>
+      <h3>Corporate Events</h3>
+      <p>Professional setups for conferences, product launches, AGMs and company retreats.</p>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-church"></i></div>
+      <h3>Church Functions</h3>
+      <p>Spacious tents for crusades, fundraisers and church celebrations with fast installation.</p>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-birthday-cake"></i></div>
+      <h3>Parties &amp; Celebrations</h3>
+      <p>Birthdays, anniversaries, graduations — we have the right tent for your special day.</p>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-store"></i></div>
+      <h3>Exhibitions &amp; Trade Shows</h3>
+      <p>Branded tent solutions for exhibitions, markets and promotional activations.</p>
+    </div>
+    <div class="svc-card fade-up">
+      <div class="svc-icon"><i class="fas fa-tools"></i></div>
+      <h3>Delivery &amp; Setup</h3>
+      <p>We handle full delivery, professional installation and takedown so you can focus on your event.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<div class="cta-banner">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Need A Tent For Your Event?</h2>
+      <p>Call or WhatsApp us today and get the best quality tents at the best price. Payment after delivery available.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="tel:0713361577" class="btn-white"><i class="fas fa-phone"></i> 0713 361 577</a>
+      <a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20tent%20hire%20from%20Brandshine%20Tent%20Makers." class="btn-wa2" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="section-head fade-up">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-title">Event Gallery</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-top:14px">A glimpse of the beautiful setups we've delivered across Kenya.</p>
+  </div>
+  <div class="gallery-grid fade-up" style="max-width:1200px;margin:0 auto">
+    <div class="gallery-cell wide" style="aspect-ratio:2/1">
+      <img src="" alt="Gallery 1" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+    <div class="gallery-cell" style="aspect-ratio:1">
+      <img src="" alt="Gallery 2" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+    <div class="gallery-cell" style="aspect-ratio:1">
+      <img src="" alt="Gallery 3" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+    <div class="gallery-cell" style="aspect-ratio:1">
+      <img src="" alt="Gallery 4" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+    <div class="gallery-cell" style="aspect-ratio:1">
+      <img src="" alt="Gallery 5" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+    <div class="gallery-cell wide" style="aspect-ratio:2/1">
+      <img src="" alt="Gallery 6" onerror="this.style.display='none'"/>
+      <div class="gallery-ph"><i class="fas fa-camera"></i><span>Your Photo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="section-head fade-up">
+    <div class="section-tag">Client Reviews</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"Brandshine delivered and set up everything perfectly for our wedding. The tent was beautiful, spacious, and exactly what we envisioned. Highly recommend!"</p>
+      <div class="testi-author">
+        <div class="author-avatar">A</div>
+        <div class="author-info"><strong>Amina Wanjiru</strong><span>Wedding Client, Nairobi</span></div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"Professional team, excellent quality tents and very affordable. They set up on time and everything was neat. Will definitely use them again for our annual conference."</p>
+      <div class="testi-author">
+        <div class="author-avatar">J</div>
+        <div class="author-info"><strong>John Kamau</strong><span>Corporate Event, Kiambu</span></div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"I was impressed by how quickly they responded and how smooth the whole process was. The tent looked amazing for our church fundraiser. Thank you Brandshine!"</p>
+      <div class="testi-author">
+        <div class="author-avatar">G</div>
+        <div class="author-info"><strong>Grace Njeri</strong><span>Church Function, Thika</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="section-head fade-up">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="faq-inner">
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you deliver and set up the tents? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Yes! We handle full delivery, professional installation and takedown. Our team ensures everything is set up properly before your event begins.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you offer payment after delivery? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Yes, we offer payment after delivery options. Contact us to discuss terms and arrangements for your specific event.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">How far in advance should I book? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">We recommend booking at least 2–3 weeks in advance, especially for large events and peak seasons. However, we do our best to accommodate last-minute requests.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">Are your tents weatherproof? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Yes, all our tents are made from high quality, weather-resistant materials that protect against rain, wind and strong sun.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you offer custom tent designs? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">Absolutely! We offer custom color, branding and design options to match your event theme. Contact us to discuss your specific requirements.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q" onclick="toggleFaq(this)">What areas do you serve? <i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">We serve clients across Kenya. Contact us with your location and we will provide delivery details and any applicable transport charges.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-head fade-up">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Contact Us Today</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-top:14px;color:rgba(255,255,255,0.5)">Ready to make your event unforgettable? Reach out and we'll get back to you fast.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info fade-up">
+      <div class="contact-item">
+        <div class="c-icon"><i class="fas fa-phone"></i></div>
+        <div class="c-text"><strong>Phone / WhatsApp</strong><span>0713 361 577</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon"><i class="fas fa-envelope"></i></div>
+        <div class="c-text"><strong>Email</strong><span>info@brandshinetents.co.ke</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="c-text"><strong>Location</strong><span>Kenya — Nationwide Delivery</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon"><i class="fas fa-clock"></i></div>
+        <div class="c-text"><strong>Working Hours</strong><span>Mon – Sat: 8:00 AM – 6:00 PM</span></div>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/254713361577" class="social-btn" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="contact-form fade-up">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="e.g. John Kamau"/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="e.g. 0712 345 678"/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="form-group">
+        <label>Type of Event</label>
+        <select>
+          <option value="">Select event type...</option>
+          <option>Wedding</option>
+          <option>Corporate Event</option>
+          <option>Church Function</option>
+          <option>Birthday / Party</option>
+          <option>Exhibition / Trade Show</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tent Size Needed</label>
+        <select>
+          <option value="">Select capacity...</option>
+          <option>50 Seater</option>
+          <option>100 Seater</option>
+          <option>150 Seater</option>
+          <option>200 Seater</option>
+          <option>250 Seater</option>
+          <option>300 Seater</option>
+          <option>Gazebo</option>
+          <option>Not Sure – Need Advice</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your event — date, location, any special requirements..."></textarea></div>
+      <button class="btn-submit" onclick="handleSubmit()"><i class="fas fa-paper-plane"></i> Send Enquiry via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-tent"></i></div>
+        <div class="logo-text">
+          <span>Premium Event Solutions</span>
+          <strong>Brandshine Tent Makers</strong>
+        </div>
+      </div>
+      <p>We provide high quality tents for all events across Kenya. Quality, durability and customer satisfaction are our top priorities.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/254713361577" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#hero">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#tents">Our Tents</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Our Tents</h4>
+      <a href="#tents">Pagoda Tents</a>
+      <a href="#tents">Pole Tents</a>
+      <a href="#tents">Marquee Tents</a>
+      <a href="#tents">Canopy Tents</a>
+      <a href="#tents">Gazebo Tents</a>
+      <a href="#tents">Custom Tents</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="tel:0713361577"><i class="fas fa-phone" style="margin-right:6px;color:var(--gold)"></i>0713 361 577</a>
+      <a href="#"><i class="fas fa-map-marker-alt" style="margin-right:6px;color:var(--gold)"></i>Kenya — Nationwide</a>
+      <a href="#"><i class="fas fa-clock" style="margin-right:6px;color:var(--gold)"></i>Mon–Sat: 8AM–6PM</a>
+      <a href="mailto:info@brandshinetents.co.ke"><i class="fas fa-envelope" style="margin-right:6px;color:var(--gold)"></i>Email Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Brandshine Tent Makers. All Rights Reserved.</span>
+    <span>Designed with ❤️ for Kenyan Events</span>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/254713361577?text=Hello%2C%20I%27m%20interested%20in%20tent%20hire%20from%20Brandshine%20Tent%20Makers." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('navbar');
+  nav.style.background=window.scrollY>60?'rgba(13,13,26,0.98)':'rgba(13,13,26,0.95)';
+});
+
+// ===== MOBILE MENU =====
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ===== FAQ =====
+function toggleFaq(el){
+  const item=el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(i=>{
+    if(i!==item)i.classList.remove('open');
+  });
+  item.classList.toggle('open');
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// ===== CONTACT FORM → WHATSAPP =====
+function handleSubmit(){
+  const inputs=document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
+  const name=inputs[0].value||'Not provided';
+  const phone=inputs[1].value||'Not provided';
+  const email=inputs[2].value||'Not provided';
+  const event=inputs[3].value||'Not specified';
+  const size=inputs[4].value||'Not specified';
+  const msg=inputs[5].value||'No message';
+  const text=`Hello Brandshine Tent Makers!%0A%0A*New Enquiry*%0A%0A👤 *Name:* ${encodeURIComponent(name)}%0A📞 *Phone:* ${encodeURIComponent(phone)}%0A📧 *Email:* ${encodeURIComponent(email)}%0A🎉 *Event Type:* ${encodeURIComponent(event)}%0A⛺ *Tent Size:* ${encodeURIComponent(size)}%0A💬 *Message:* ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/254713361577?text=${text}`,'_blank');
+}
+
+// ===== SMOOTH SCROLL FOR NAV LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+
+// ===== HERO IMAGE PLACEHOLDER HIDE =====
+document.querySelectorAll('.tent-img img, .about-img-cell img, .gallery-cell img').forEach(img=>{
+  if(!img.src||img.src===window.location.href){
+    img.style.display='none';
+  }
+});
+</script>
+</body>
+</html>
