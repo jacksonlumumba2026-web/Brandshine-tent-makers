@@ -452,47 +452,33 @@ footer{background:var(--dark);padding:52px 5% 22px;border-top:1px solid rgba(212
     <div class="stag">Available Chairs</div>
     <h2 class="stit">Our Chair Collection</h2>
     <div class="divg"></div>
-    <p class="ssub" style="margin-top:12px">Premium plastic chairs from trusted brands. Bulk orders welcome.</p>
+    <p class="ssub" style="margin-top:12px">Click any photo to view. Bulk orders welcome — call or WhatsApp us.</p>
   </div>
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:18px">
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-kenpoly.jpg" alt="Kenpoly Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Kenpoly</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-adix.jpg" alt="Adix Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Adix</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-npl.jpg" alt="NPL Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">N.P.L</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-sosana.jpg" alt="Sosana Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Sosana</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-anytime.jpg" alt="Anytime Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Anytime</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-acme.jpg" alt="Acme Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Acme</div></div>
-    </div>
-
-    <div class="sr" style="background:var(--gray);border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);transition:var(--t)" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <div style="aspect-ratio:1;overflow:hidden"><img src="chair-kenpoly2006.jpg" alt="Kenpoly 2006 Chair" style="width:100%;height:100%;object-fit:cover"/></div>
-      <div style="padding:12px;text-align:center"><div style="font-weight:800;font-size:14px;color:var(--d2)">Kenpoly 2006</div></div>
-    </div>
-
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+    <div class="gi sr" onclick="openChairLB('chair-1.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-1.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-2.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-2.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-3.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-3.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-4.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-4.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-5.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-5.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-6.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-6.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-7.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-7.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-8.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-8.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-9.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-9.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-10.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-10.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-11.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-11.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-12.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-12.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-13.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-13.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-14.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-14.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
+    <div class="gi sr" onclick="openChairLB('chair-15.jpg')" style="border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#eee;transition:var(--t)" onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><img src="chair-15.jpg" alt="Chair" style="width:100%;height:100%;object-fit:cover"/></div>
   </div>
 </section>
+
+<!-- Chair Lightbox -->
+<div id="clb" style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,0.95);backdrop-filter:blur(12px);align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:20px">
+  <button onclick="closeChairLB()" style="position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.08);border:none;font-size:18px;color:#fff;cursor:pointer"><i class="fas fa-times"></i></button>
+  <img id="clb-img" src="" alt="Chair" style="max-width:min(600px,90vw);max-height:75vh;object-fit:contain;border-radius:16px;border:1px solid rgba(212,160,23,0.2);box-shadow:0 24px 80px rgba(0,0,0,0.9)"/>
+  <a id="clb-wa" href="https://wa.me/254724852065?text=Hello!+I'm+interested+in+chairs+from+Brandshine." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.35);color:#4ade80;padding:11px 24px;border-radius:50px;font-weight:700;font-size:14px"><i class="fab fa-whatsapp"></i> Order This Chair on WhatsApp</a>
+</div>
 
 <!-- PRICING --><section id="pricing">
   <div class="shead sr"><div class="stag">Transparent Pricing</div><h2 class="stit">Full Price List</h2><div class="divg"></div><p class="ssub" style="margin-top:12px">All prices include delivery &amp; professional setup. Payment after delivery available.</p></div>
@@ -663,6 +649,17 @@ footer{background:var(--dark);padding:52px 5% 22px;border-top:1px solid rgba(212
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
 
 <script>
+// CHAIR LIGHTBOX
+function openChairLB(src){
+  document.getElementById('clb-img').src=src;
+  document.getElementById('clb').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeChairLB(){
+  document.getElementById('clb').style.display='none';
+  document.body.style.overflow='';
+}
+document.getElementById('clb').addEventListener('click',function(e){if(e.target===this)closeChairLB()});
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
